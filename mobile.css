@@ -5,7 +5,6 @@
 }
 header, nav,footer{
     background-color: salmon;
-   
 }
 header{
     height: 20vh;
@@ -47,7 +46,13 @@ header nav #inicioSesion{
     padding: 1vh 2vh;
     border-radius: 1vh;
 }
-#menu{
+#todo{
+    background-color: black;
+}
+.menu{
+    display: none;
+}
+#botonmenu{
     position: fixed;
     top: 20vh;
     width: 5vh;
@@ -58,7 +63,6 @@ header nav #inicioSesion{
     z-index: 1;
 }
 div#contenedor{
-    background-color: black;
     position: relative;
     width: 100%;
     margin-top: 20vh;
@@ -68,6 +72,7 @@ div#contenedor{
     justify-content: space-between;
     align-items: center;
     overflow-y: auto;
+    z-index: 0;
 }
 div#contenedor section:first-child{
     margin-top: 5vh;
@@ -97,6 +102,15 @@ section{
 .segundo{
     grid-area: tres;
 }
+.tercero{
+    grid-area: cuatro;
+}
+.cuarto{
+    grid-area: cinco;
+}
+.quinto{
+    grid-area: seis;
+}
 .titulo{
     background-color: cyan;
     border: 1px solid white;
@@ -111,6 +125,112 @@ footer{
     background-color: salmon;
     height: 10vh;
     width: 100%;
-  
     position: relative;
+}
+
+@media screen and (min-width: 700px){
+    header{
+        position: relative;
+    }
+    #todo{
+        position: relative;
+        background-color: black;
+        width: 100%;
+        display: flex;
+        height: 200vh;
+    }
+
+    div#contenedor{
+        margin-top: 0%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 0;
+        overflow-y: unset;
+        height: calc();
+    }
+    aside{
+        background-color: red;
+        width: 20%;
+        position: relative;
+        z-index: 3;
+        display: block;
+    }
+    .menu{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin: 1vh;
+    }
+    .tituloMenu{
+        padding-bottom: 1vh;
+    }
+    .opcion{
+        padding: 1vh 0vh;
+    }
+    #botonmenu{
+        display: none;
+    }
+    section{
+        display: grid;
+        grid-template-columns: 25% 25% 25%;
+        grid-template-rows: 5vh 15vh;
+        grid-row-gap:3vh;
+        grid-column-gap: 10%;
+        grid-auto-flow: column;
+        grid-template-areas:
+        "uno . ."
+        "dos tres cuatro";
+    }
+    .cuarto{
+        display: none;
+    }
+    .quinto{
+       display: none;
+    }
+    footer{
+        position: relative;
+    }
+
+}
+@media screen and (min-width: 1200px){
+
+   
+    section{
+        display: grid;
+        grid-template-columns: repeat(4,18%);
+        grid-template-rows: 5vh 15vh;
+        grid-row-gap:3vh;
+        grid-column-gap: 5vh;
+        grid-auto-flow: column;
+        grid-template-areas:
+        "uno . . ."
+        "dos tres cuatro cinco";
+    }
+    .cuarto{
+       display: inline-block;
+    }
+    
+    
+}
+@media screen and (min-width: 1500px) {
+    #botonmenu{
+        display: none;
+    }
+    section{
+        display: grid;
+        grid-template-columns: repeat(5,15%);
+        grid-template-rows: 5vh 15vh;
+        grid-row-gap:3vh;
+        grid-column-gap: 5vh;
+        grid-auto-flow: column;
+        grid-template-areas:
+        "uno . . . ."
+        "dos tres cuatro cinco seis";
+    }
+    .quinto{
+        display: inline-block;
+    }
 }
