@@ -2,3 +2,4 @@
 servidor web de anuncios
 
 ir añadiendo aqui los links de los diferentes plataformas web que vamos a usar
+<img src="/diagramaGantt.png">
