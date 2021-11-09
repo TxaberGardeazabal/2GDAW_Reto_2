@@ -1,0 +1,116 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+header, nav,footer{
+    background-color: salmon;
+   
+}
+header{
+    height: 20vh;
+    top: 0vh;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+header h1{
+    width: 65%;
+    height: 35%;
+    background-color: blue;
+    border: 1px solid white;
+    border-radius: 1vh;
+    align-self: center;
+    text-align: center;
+}
+header nav{
+    width: 65%;
+    height: 35%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+header nav #buscador{
+    width: 50%;
+    background-color: green;
+    border: 1px solid white;
+    border-radius: 1vh;
+    padding: 10px ;
+}
+header nav #inicioSesion{
+    background-color: green;
+    border: 1px solid white;
+    padding: 1vh 2vh;
+    border-radius: 1vh;
+}
+#menu{
+    position: fixed;
+    top: 20vh;
+    width: 5vh;
+    height: 5vh;
+    background-color: green;
+    border-radius: 1vh;
+    border: 1px solid white;
+    z-index: 1;
+}
+div#contenedor{
+    background-color: black;
+    position: relative;
+    width: 100%;
+    margin-top: 20vh;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow-y: auto;
+}
+div#contenedor section:first-child{
+    margin-top: 5vh;
+}
+div#contenedor > *{
+    width: 80%;
+    margin-bottom: 5vh;
+    margin-left: 9%;
+}
+section{
+    display: grid;
+    grid-template-columns: 40% 40%;
+    grid-template-rows: 5vh 15vh;
+    grid-row-gap:3vh;
+    grid-column-gap: 10%;
+    grid-auto-flow: column;
+    grid-template-areas:
+    "uno ."
+    "dos tres";
+}
+.titulo{
+    grid-area: uno;
+}
+.primero{
+    grid-area: dos;
+}
+.segundo{
+    grid-area: tres;
+}
+.titulo{
+    background-color: cyan;
+    border: 1px solid white;
+    border-radius: 1vh;
+}
+.anuncio{
+    background-color: blue;
+    border: 1px solid white;
+    border-radius: 1vh;
+}
+footer{
+    background-color: salmon;
+    height: 10vh;
+    width: 100%;
+  
+    position: relative;
+}
