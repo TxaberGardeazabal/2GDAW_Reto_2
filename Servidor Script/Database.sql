@@ -33,7 +33,7 @@ CREATE TABLE anuncios (
   nombre VARCHAR(30),
   precio FLOAT,
   imagen BLOB,
-  desrcripcion VARCHAR(100),
+  descripcion VARCHAR(100),
   localizacion VARCHAR(30),
   visitas INT,
   categoria varchar(20),
@@ -51,7 +51,9 @@ CREATE TABLE destacados (
 );
 
 
-
+CREATE USER '2gdaw'@'localhost' IDENTIFIED BY '12345Abcde';
+GRANT CREATE,SELECT,DELETE,INSERT ON web_anuncios.* TO '2gdaw'@'localhost';
+FLUSH PRIVILEGES;
 
 INSERT INTO usuarios (nomUsuario,contrasena) VALUES ('admin','admin');
 INSERT INTO comerciantes VALUES (LAST_INSERT_ID(),'error404','999999999','12345','admin@localhost');
@@ -73,12 +75,3 @@ INSERT INTO anuncios (nombre,precio,imagen,descripcion,localizacion,categoria,co
  VALUES ('java powered lavadora',780,null,'descripcion','siemens','electrodomesticos',1);
  
 INSERT INTO destacados VALUES (3,2);
-
-
-
-
-CREATE USER '2gdaw'@'localhost' IDENTIFIED BY '12345Abcde';
-GRANT CREATE,SELECT,DELETE,INSERT ON web_anuncios.* TO '2gdaw'@'localhost';
-FLUSH PRIVILEGES;
-
-
