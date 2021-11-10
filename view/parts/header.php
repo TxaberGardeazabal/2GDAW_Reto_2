@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <title>Reto_2</title>
+    <script src="javascript/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
@@ -20,4 +21,4 @@
         </nav>
     </header>
     <div id="todo">
-        <button id="botonmenu">M</button>
+        <button id="botonmenu" onclick="mostrarMenu()">M</button>
