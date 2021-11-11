@@ -1,4 +1,5 @@
 <aside>
+    <button id="botonCerrarMenu" onclick="ocultarMenu()">x</button>
     <div class="menu">
         <h2 class="tituloMenu">Titulo1</h2>
         <button class="opcion">Opcion1</button>
