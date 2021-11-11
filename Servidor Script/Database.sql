@@ -33,7 +33,7 @@ CREATE TABLE anuncios (
   nombre VARCHAR(30),
   precio FLOAT,
   imagen BLOB,
-  desrcripcion VARCHAR(100),
+  descripcion VARCHAR(100),
   localizacion VARCHAR(30),
   visitas INT,
   categoria varchar(20),
