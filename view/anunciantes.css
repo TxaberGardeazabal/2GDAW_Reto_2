@@ -1,0 +1,62 @@
+main {
+    margin-top: 20vh;
+}
+
+#div_anuncios {
+    background-color: midnightblue;
+    display: none;
+    padding: 7%;
+    /*display: flex;*/
+    flex-direction: column;
+}
+
+#div_formulario {
+    background-color: yellowgreen;
+    overflow-x: scroll;
+}
+
+.container_anuncio {
+    margin: 20px 0;
+}
+
+.div_anuncio {
+    background-color: aqua;
+    display: block;
+    padding: 5%;
+    height: 20em;
+    overflow-x: scroll;
+}
+
+.div_anuncio h3 {
+    margin-bottom: 2%;
+}
+
+.div_anuncio .imagen {
+    height: 25vh;
+    width: 39vh;
+    margin: 0 auto;
+}
+
+.div_anuncio .datos ul {
+    list-style-type: none;
+    margin: 3% 0;
+}
+
+.div_anuncio .datos ul li {
+    margin: 3px 0;
+}
+
+.div_boton {
+    display: flex;
+    justify-content: right;
+}
+
+.div_boton button {
+    margin: 2px 0 2px 4px;
+}
+
+#div_formulario form {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: repeat(8, auto);
+}
