@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="anunciantes.css">
     <title>Reto_2</title>
+    <script src="javascript/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
         <h1>Usuario</h1>
-        
+        <div><button>cerrar sesion</button></div>
     </header>
     <main>
-        <button>Consultar</button>
-        <button>A&ntilde;adir</button>
+        <div id="bDecor">
+            <button id="anun" onclick="mostrarAdminAnuncios()">Consultar</button>
+            <button id="form" onclick="mostrarFormAnuncio()">A&ntilde;adir</button>
+        </div>
         <div id="div_anuncios">
             <h3>Tus anuncios:</h3>
 
@@ -41,8 +44,8 @@
                     </div>
                 </section>
                 <div class="div_boton">
-                    <button>Ver en la web</button>
-                    <button>Eliminar</button>
+                    <button onclick="verAnuncio('asd')">Ver en la web</button>
+                    <button onclick="borrarAnuncio('asd')">Eliminar</button>
                 </div>
             </div>
 
@@ -68,8 +71,8 @@
                     </div>
                 </section>
                 <div class="div_boton">
-                    <button>Ver en la web</button>
-                    <button>Eliminar</button>
+                    <button onclick="">Ver en la web</button>
+                    <button onclick="">Eliminar</button>
                 </div>
             </div>
         </div>
@@ -77,15 +80,15 @@
             <h2>Nuevo anuncio</h2>
             <form action="">
                 <label for="tit">Titulo:</label>
-                <input type="text" name="nombre" id="tit">
+                <input type="text" name="nombre" id="tit" maxlength="20">
                 <label for="ref">Ref:</label>
-                <input type="text" name="ref" id="ref">
+                <input type="text" name="ref" id="ref" maxlength="20" disabled>
                 <label for="emp">Empresa:</label>
-                <input type="text" name="empresa" id="emp">
+                <input type="text" name="empresa" id="emp" maxlength="20" disabled>
                 <label for="loc">Localizacion:</label>
-                <input type="text" name="loc" id="loc">
+                <input type="text" name="loc" id="loc" maxlength="20">
                 <label for="pre">Precio:</label>
-                <input type="text" name="precio" id="pre" placeholder="&euro;">
+                <input type="text" name="precio" id="pre" placeholder="&euro;" maxlength="7">
                 <label for="img">Imagen:</label>
                 <input type="file" name="imagen" id="img">
                 <label for="desc">Descripcion:</label>

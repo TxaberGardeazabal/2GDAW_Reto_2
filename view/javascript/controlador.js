@@ -28,3 +28,41 @@ function ocultarMenu() {
     $("#contenedor").css("display","");
     //console.log("todo va");
 }
+
+function mostrarAdminAnuncios() {
+    $("#div_anuncios").css("display","flex");
+    $("#div_formulario").css("display","none");
+
+    // el boton se muestra seleccionado y no hace nada mas
+    $("#bDecor :first-child").css("background-color","#7ccc00");
+    $("#bDecor :first-child").css("z-index","2");
+
+    $("#bDecor :last-child").css("background-color","lawngreen");
+    $("#bDecor :last-child").css("z-index","1");
+}
+
+function mostrarFormAnuncio() {
+    $("#div_anuncios").css("display","none");
+    $("#div_formulario").css("display","block");
+
+    // el boton se muestra seleccionado y no hace nada mas
+    $("#bDecor :first-child").css("background-color","lawngreen");
+    $("#bDecor :first-child").css("z-index","1");
+
+    $("#bDecor :last-child").css("background-color","#7ccc00");
+    $("#bDecor :last-child").css("z-index","2");
+}
+
+function verAnuncio(asd) {
+    // aqui el link al anuncio
+    window.open("http://localhost:8765/reto%202/index.php");
+}
+
+function borrarAnuncio(asd) {
+    // aqui el id del anuncio
+    var opt = confirm("estas seguro de querer borrar el anuncio de forma permanente?");
+    if (opt) {
+        // borrar
+    }
+        // no borrar
+}
