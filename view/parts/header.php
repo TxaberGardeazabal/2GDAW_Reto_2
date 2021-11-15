@@ -18,7 +18,11 @@
                 <input type="text" id="buscador">
                 <button id="botonbuscar">B</button>
             </div>
-            <button id="inicioSesion">i</button>
+            <button id="inicioSesion" onclick="mostrarLogin()">i</button>
+            <div id="div_Binicio">
+                <a href="http://localhost:8765/reto%202/login.html">Iniciar sesion</a>
+                <a href="#">Crear cuenta</a>
+            </div>
         </nav>
     </header>
     <div id="todo">

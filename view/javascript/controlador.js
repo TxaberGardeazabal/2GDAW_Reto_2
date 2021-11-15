@@ -66,3 +66,12 @@ function borrarAnuncio(asd) {
     }
         // no borrar
 }
+
+function mostrarLogin() {
+    if($("#div_Binicio").css("display") === "none") {
+        $("#div_Binicio").css("display","flex");
+    }
+    else {
+        $("#div_Binicio").css("display","none");
+    }
+}
