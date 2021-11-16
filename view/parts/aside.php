@@ -1,3 +1,4 @@
+<button id="botonmenu" onclick="mostrarMenu()">M</button>
 <aside>
     <button id="botonCerrarMenu" onclick="ocultarMenu()">x</button>
     <div class="menu">
