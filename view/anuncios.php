@@ -1,5 +1,5 @@
 <?php require"parts/header.php";
-    require "parts/aside.php"?>
+    require"parts/aside.php"?>
 
     <div id="contenedor">
         <section class="anuncio">

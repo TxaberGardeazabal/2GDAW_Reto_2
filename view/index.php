@@ -10,37 +10,39 @@
                 $publicidad = array('anuncio');
                 array_splice($arrayCat,2, 0, $publicidad);
                 array_splice($arrayCat,5, 0, $publicidad);
+                array_splice($arrayCat,8, 0, $publicidad);
+                array_splice($arrayCat,11, 0, $publicidad);
+                array_splice($arrayCat,14, 0, $publicidad);
                 for($i= 0; $i<count($arrayCat) ; $i++){
                     
                 if($arrayCat[$i+1]=="anuncio"){
-                    echo "<section class=\"plus\">"; 
+                    echo "<section class=\"plus\">";
+                    generarDatos($baseDatos,$arrayCat,$i); 
+                
+                    echo "<a href=\"categorias.php?cat=$arrayCat[$i]\" class=\"titulo\"> $arrayCat[$i]</a>";
                     ?> 
-                    <h3 class="titulo"><?= $arrayCat[$i] ?></h3>
-                    
-                    <?php
-                        generarDatos($baseDatos,$arrayCat,$i);
-                        
-                    ?>
                         <button class="siete"><img src="imagenes/triangulo.png" alt="imagen"></button>
                     <?php
-                        
+                         
                 
-                    echo "</section>";
+                    
                     $i++;
                 }
                 else{
-                    echo "<section>"  ; 
-                   
-            ?>  
-                <h3 class="titulo"><?= $arrayCat[$i] ?></h3>
                     
-                    <?php
-                       generarDatos($baseDatos,$arrayCat,$i);
-                    ?>
+                    echo "<section>"  ; 
+                    generarDatos($baseDatos,$arrayCat,$i); 
+                   
+            
+               echo "<a href=\"categorias.php?cat=$arrayCat[$i]\" class=\"titulo\"> $arrayCat[$i]</a>";
+               ?>   
+                
+                   
 
-                </section>
+           
             <?php
                 }
+                echo "</section>";
             }
             ?>  
 
