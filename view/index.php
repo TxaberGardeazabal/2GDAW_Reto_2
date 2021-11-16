@@ -1,5 +1,5 @@
 <?php require"parts/header.php"?>
-<?php require"conexionBD.php"?>
+<?php require"php/conexionBD.php"?>
 <?php require"parts/aside.php"?>
     
         <div id="contenedor">
@@ -19,9 +19,9 @@
                     echo "<section class=\"plus\">";
                     generarDatos($baseDatos,$arrayCat,$i); 
                 
-                    echo "<a href=\"categorias.php?cat=$arrayCat[$i]\" class=\"titulo\"> $arrayCat[$i]</a>";
+                    echo "<a href=\"paginas/categorias.php?cat=$arrayCat[$i]\" class=\"titulo\"> $arrayCat[$i]</a>";
                     ?> 
-                        <button class="siete"><img src="imagenes/triangulo.png" alt="imagen"></button>
+                        <button class="siete"><img src="imagenes/iconos/triangulo.png" alt="imagen"></button>
                     <?php
                          
                 
@@ -34,7 +34,7 @@
                     generarDatos($baseDatos,$arrayCat,$i); 
                    
             
-               echo "<a href=\"categorias.php?cat=$arrayCat[$i]\" class=\"titulo\"> $arrayCat[$i]</a>";
+               echo "<a href=\"paginas/categorias.php?cat=$arrayCat[$i]\" class=\"titulo\"> $arrayCat[$i]</a>";
                ?>   
                 
                    
@@ -48,4 +48,4 @@
 
         </div>
 
-<?php require"parts/footer.php"?>
+<?php require"paginas/parts/footer.php"?>
