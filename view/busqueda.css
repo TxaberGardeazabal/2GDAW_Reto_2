@@ -1,0 +1,32 @@
+
+div#categoriasbusqueda{
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(4,25%);
+    min-height: 7vh;
+    max-height: 25vh;
+    background-color: goldenrod;
+    justify-self: center;
+}
+
+
+a.busqueda{
+    padding: 1vh 0vh;
+    text-align: center;
+    background-color: blueviolet;
+    border: 1px solid white;
+    border-radius: 1vh;
+    z-index: 2;
+    color: white;
+    margin: 5px;
+    align-self: center;
+}
+a.categoria{
+    background-color: blueviolet;  
+}
+a.anunciob{
+    background-color: blue; 
+}
+a.relacionadob{
+    background-color: cyan; 
+}
