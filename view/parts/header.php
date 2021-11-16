@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="anuncio.css">
+
     <link rel="stylesheet" href="busqueda.css">
     <link rel="stylesheet" href="categorias.css">
+
+    <link rel="stylesheet" href="anunciantes.css">
+
     <title>Reto_2</title>
     <script src="javascript/jquery-3.6.0.min.js"></script>
 </head>
@@ -21,7 +25,11 @@
                 <input type="text" id="buscador" name="buscador">
                 <input type="submit" id="botonbuscar" value="B">
             </form>
-            <button id="inicioSesion">i</button>
+            <button id="inicioSesion" onclick="mostrarLogin()">i</button>
+            <div id="div_Binicio">
+                <a href="http://localhost:8765/reto%202/login.html">Iniciar sesion</a>
+                <a href="#">Crear cuenta</a>
+            </div>
         </nav>
     </header>
     <div id="todo">

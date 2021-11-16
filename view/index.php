@@ -1,7 +1,7 @@
 <?php require"parts/header.php"?>
 <?php require"conexionBD.php"?>
 <?php require"parts/aside.php"?>
-
+    
         <div id="contenedor">
 
             <?php

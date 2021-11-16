@@ -98,3 +98,35 @@ function fswitch($i){
     }
     return $posicion;
 }
+
+////////////// prubeba de imagen
+function cosoImagen() {
+    $archivo = $_FILES['imagen']['name'];
+
+    if (isset($archivo) && $archivo != "") {
+        $tipo = $_FILES['imagen']['type'];
+        $tamano = $_FILES['imagen']['size'];
+        $temp = $_FILES['imagen']['tmp_name'];
+
+        echo $archivo;
+        // validar
+
+        if(move_uploaded_file($temp, "imagenes/".$archivo)) {
+            echo "fue bien?";
+            chmod('imagenes/'.$archivo, 0777);
+            echo '<div><b>Se ha subido correctamente la imagen.</b></div>';
+            echo '<p><img src="imagenes/'.$archivo.'"></p>';
+        }
+        else {
+            echo "problemas al subir imagen";
+        }
+    }
+    else {
+        echo "a";
+    }
+}
+
+if (isset($_POST["imagen"])) {
+    echo "a";
+    cosoImagen();
+}

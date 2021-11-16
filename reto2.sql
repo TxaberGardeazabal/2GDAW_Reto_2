@@ -31,7 +31,7 @@ CREATE TABLE anuncios (
   id INT(4) AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(30),
   precio FLOAT,
-  imagen BLOB,
+  imagen VARCHAR(30),
   descripcion VARCHAR(100),
   localizacion VARCHAR(30),
   visitas INT DEFAULT 0,
