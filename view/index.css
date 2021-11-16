@@ -51,6 +51,9 @@ header nav button#botonbuscar{
     border-radius: 1vh;
 }
 header nav button#inicioSesion{
+    background-image: url("user_icon.jpg");
+    background-size: 100% 100%;
+
     background-color: cyan;
     border: 1px solid white;
     padding: 1vh 2vh;

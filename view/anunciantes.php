@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="anunciantes.css">
-    <title>Reto_2</title>
-    <script src="javascript/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-    <header>
-        <h1>Usuario</h1>
-        <div><button>cerrar sesion</button></div>
-    </header>
+<?php require"parts/header.php"?>
     <main>
         <div id="bDecor">
             <button id="anun" onclick="mostrarAdminAnuncios()">Consultar</button>
@@ -78,7 +63,7 @@
         </div>
         <div id="div_formulario">
             <h2>Nuevo anuncio</h2>
-            <form action="">
+            <form method="POST" action="conexionBD.php" enctype="multipart/form-data">
                 <label for="tit">Titulo:</label>
                 <input type="text" name="nombre" id="tit" maxlength="20">
                 <label for="ref">Ref:</label>
@@ -88,13 +73,15 @@
                 <label for="loc">Localizacion:</label>
                 <input type="text" name="loc" id="loc" maxlength="20">
                 <label for="pre">Precio:</label>
-                <input type="text" name="precio" id="pre" placeholder="&euro;" maxlength="7">
+                <input type="text" name="precio" id="pre" placeholder="&euro;" maxlength="9">
                 <label for="img">Imagen:</label>
                 <input type="file" name="imagen" id="img">
                 <label for="desc">Descripcion:</label>
                 <textarea name="descripcion" id="desc" cols="30" rows="10"></textarea>
-                <input type="reset" value="Borrar">
-                <input type="submit" value="Enviar">
+                <div>
+                    <input type="reset" value="Borrar">
+                    <input type="submit" value="Enviar">
+                </div>
             </form>
         </div>
     </main>
