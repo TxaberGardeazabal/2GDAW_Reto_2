@@ -1,5 +1,6 @@
-<?php require"parts/header.php";
-    require"parts/aside.php"?>
+<?php require"parts/header.php"?>
+<?php require"basedatos/conexionBD.php"?>
+<?php require"parts/aside.php"?>
 
     <div id="contenedor">
         <section class="anuncio">

@@ -1,5 +1,5 @@
 <?php require"parts/header.php"?>
-<?php require"../php/conexionBD.php"?>
+<?php require"basedatos/conexionBD.php"?>
 <?php require"parts/aside.php"?>
 
 <div id="contenedor">
