@@ -56,13 +56,12 @@
                 </div>
             </div>
         </section>
+        
         <section>
-            <h3 class="titulo">1</h3>
-            <div class="anuncio primero" >2</div>
-            <div class="anuncio segundo">3</div>
-            <div class="anuncio tercero">3.5</div>
-            <div class="anuncio cuarto">3.75</div>
-            <div class="anuncio quinto">3.875</div>
+            <a href="categorias.php?cat=<?=$datos['categoria']?>" class="titulo"> <?=$datos['categoria']?></a>
+            <?php
+                generarDatos3($baseDatos,$datos['categoria']);                 
+            ?>
         </section>
     </div>
 
