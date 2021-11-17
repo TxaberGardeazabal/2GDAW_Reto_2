@@ -1,0 +1,73 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesion</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <script type="text/javascript" src="./javascript/login.js"></script>
+    <script type="text/javascript" src="./javascript/sweetalert2.all.js"></script>
+    <link rel="stylesheet" href="./css/sweetalert2.css">
+    <script src="./javascript/jquery-3.6.0.min.js"></script>
+</head>
+<html lang="es">
+    <body>
+        <div id="login-container">
+            <h1 id="titulo">Iniciar Sesión</h1>
+            <div id="foto"></div>
+            <form id="formulario">
+                <p>Usuario</p>
+                <input id="usuario" class="field" type="text" name="usuario" placeholder="Introduce tu nombre de usuario"><br>
+                <p>Contraseña</p>
+                <input id="clave" class="field" type="password" name="pass" placeholder="Introduce tu contraseña"><br>
+                <input id="recordar" type="checkbox"> Recordarme<br>
+                <button type="submit" id="submit">Login</button>
+            </form>
+            <a style="margin-left: 8%">No tienes cuenta?</a>  <a id="registrarme" style="color: #85c98f;cursor: pointer;">Registrarme</a>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("#formulario").submit((e) => e.preventDefault());
+                $('#submit').click(function(){
+                    $.ajax({    
+                        type: "POST",
+                        url: "./basedatos/selectUsuarios.php",             
+                        dataType: "text", 
+                        data: {usuario1:$("#usuario").val(), passwd:$("#clave").val()},         
+                        statusCode: {500:() => serverError()},
+                        success: respuesta => respuesta.length > 0 ? loginSuccess() : loginError(),
+                        error: (jqXHR, textStatus, errorThrown) => ajaxError(textStatus,errorThrown)
+                    });
+                });
+                $('#registrarme').click(function(){
+                    Swal.fire({
+                        title: 'Crear usuario',
+                        html: `<input type="text" id="login" class="swal2-input" placeholder="Indica un usuario*">
+                        <input type="password" id="password" class="swal2-input" placeholder="Indica una contraseña*">`,
+                        confirmButtonText: 'Crear',
+                        focusConfirm: false,
+                        preConfirm: () => {
+                            const login = Swal.getPopup().querySelector('#login').value
+                            const password = Swal.getPopup().querySelector('#password').value
+                            if (!login || !password) {
+                                Swal.showValidationMessage(`Rellena todos los campos.`);
+                            }
+                            return { login: login, password: password }
+                        }
+                    }).then((result) => {
+                        if(($("#login").val()).length>0 && ($("#password").val()).length>0){
+                            $.ajax({    
+                                type: "POST",
+                                url: "./basedatos/insertUsuario.php",             
+                                dataType: "text", 
+                                data: {usuario1:$("#login").val(), passwd:$("#password").val()},         
+                                statusCode: {500:() => serverError()},
+                                success: respuesta => respuesta.length > 0 ? registroSuccess() : registroError(),
+                                error: (jqXHR, textStatus, errorThrown) => ajaxError(textStatus,errorThrown)
+                            });
+                        }
+                    });
+                });
+            });
+        </script>  
+    </body>
+</html>
