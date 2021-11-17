@@ -21,12 +21,12 @@ function generarDatos($baseDatos,$arrayCat,$i){
     for($j= 0; $j<count($arrayAnun) && $j<4; $j++){
         $posicion = fswitch($j);
     
-    echo"<a href=\"cat/$arrayCat[$i]/$arrayAnun[$j]\"class=\"anuncio $posicion\">$arrayAnun[$j]</a>";
+    echo"<a href=\"anuncios.php?anun=$arrayAnun[$j]\"class=\"anuncio $posicion\">$arrayAnun[$j]</a>";
 
     }
     if(count($arrayAnun)>4){
         $posicion = fswitch($j);
-        echo"<a href=\"categorias.php?cat=$arrayCat[$i]\" class=\"anuncio $posicion\"><img src=\"imagenes/triangulo.png\" alt=\"imagen\"></a>";
+        echo"<a href=\"categorias.php?cat=$arrayCat[$i]\" class=\"anuncio $posicion\"><img src=\"imagenes/iconos/triangulo.png\" alt=\"imagen\"></a>";
     }
 }
 function generarDatos2($baseDatos,$dato){
@@ -34,9 +34,11 @@ function generarDatos2($baseDatos,$dato){
     for($j= 0; $j<count($arrayAnun); $j++){
         $posicion = fswitch($j);
     
-    echo"<a class=\"anuncio \">$arrayAnun[$j]</a>";
+    echo"<a href=\"anuncios.php?anun=$arrayAnun[$j] \"class=\"anuncio\">$arrayAnun[$j]</a>";
     }
 }
+
+
 function generarBotonesDatos($baseDatos,$arraySupCat,$i){
     $arrayCat = selectCompleja($baseDatos,"categorias","clase","superclase",$arraySupCat[$i]);
 
@@ -66,6 +68,43 @@ function selectCompleja($baseDatos, $tabla,$columna,$aComparar ,$dato){
     }
     return($categorias);
 }
+function selectCompleja2($baseDatos, $tabla,$columna,$aComparar ,$dato){
+    $datos = array();
+    $statement = $baseDatos->prepare("SELECT $columna FROM $tabla WHERE $aComparar = \"$dato\"");
+    $statement->execute();
+    
+    while($row = $statement->fetch()) {
+        $datos = [
+            "id" => $row["id"],
+            "nombre" => $row["nombre"],
+            "precio" => $row["precio"],
+            "imagen" => $row["imagen"],
+            "descripcion" => $row["descripcion"],
+            "localizacion" => $row["localizacion"],
+            "visitas" => $row["visitas"],
+            "categoria" => $row["categoria"],
+            "comerciante" => $row["comerciante"],
+
+        ];
+    }
+    return $datos;
+}
+function selectCompleja3($baseDatos, $tabla,$columna,$aComparar ,$dato){
+    $datos = array();
+    $statement = $baseDatos->prepare("SELECT $columna FROM $tabla WHERE $aComparar = \"$dato\"");
+    $statement->execute();
+    
+    while($row = $statement->fetch()) {
+        $datos = [
+            "id" => $row["id"],
+            "nomEmpresa" => $row["nomEmpresa"],
+            "telefono" => $row["telefono"],
+            "codPostal" => $row["codPostal"],
+            "email" => $row["email"],
+        ];
+    }
+    return $datos;
+}
 
 function selectComplejisima($baseDatos, $tabla,$columna,$aComparar ,$dato){
     $categorias = array();
@@ -77,6 +116,9 @@ function selectComplejisima($baseDatos, $tabla,$columna,$aComparar ,$dato){
     }
     return($categorias);
 }
+
+
+
 
 function fswitch($i){
     switch($i){

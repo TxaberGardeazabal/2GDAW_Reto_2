@@ -17,9 +17,8 @@
                     
                 if($arrayCat[$i+1]=="anuncio"){
                     echo "<section class=\"plus\">";
-                    generarDatos($baseDatos,$arrayCat,$i); 
-                
                     echo "<a href=\"categorias.php?cat=$arrayCat[$i]\" class=\"titulo\"> $arrayCat[$i]</a>";
+                    generarDatos($baseDatos,$arrayCat,$i); 
                     ?> 
                         <button class="siete"><img src="imagenes/iconos/triangulo.png" alt="imagen"></button>
                     <?php

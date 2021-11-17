@@ -38,14 +38,14 @@
     
 }
 
-.anuncio .datos #proveedor{
+.anuncio .datos .datosanun{
     margin: 3% 0;
 }
 
-.anuncio .datos #proveedor ul {
+.anuncio .datos .datosanun ul {
     list-style-type: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     font-size: 13px;
     color: grey;

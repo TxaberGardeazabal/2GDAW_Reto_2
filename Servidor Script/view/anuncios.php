@@ -3,29 +3,56 @@
 <?php require"parts/aside.php"?>
 
     <div id="contenedor">
+        <?php 
+            $cat =$_GET["cat"];
+            $anun =$_GET["anun"];
+        ?>
         <section class="anuncio">
-            <h2>Titulo del anuncio</h2>
-            <div id="imagen"><img src="" alt="imagen"></div>
+            <?php 
+                echo "<h2>$anun</h2>";
+                $datos = selectCompleja2($baseDatos,"anuncios","*","nombre",$anun);
+                $datos2 = selectCompleja3($baseDatos,"comerciantes","*","id",$datos['comerciante']);
+            ?>
+
+            <div id="imagen"><img src="<?=$datos['imagen']?>" alt="imagen"></div>
             <div class="datos">
                 <button>favorito</button>
-                <p><b>Precio: <?=""?></b></p>
-                <div id="proveedor">
+              
+                <p><b>Precio:</b><?=$datos['precio']?></p>
+                
+                <div class="datosanun" id="producto">
                     <ul>
                         <li>
-                            REF: dfshcetgert<?=""?>
+                            Categoria: <?=$datos['categoria']?>
                         </li>
                         <li>
-                            Empresa: wgiwejniasnngh enlgnsrgsthrctwe<?=""?>
+                            Comerciante: <?=$datos['comerciante']?>
                         </li>
                         <li>
-                            Localizacion: wqlihebihgsebrihb gnhs ebgresrhgbmsehbm gewrgyesign<?=""?>
+                            Localizacion: <?=$datos['localizacion']?>
+                        </li> 
+                    </ul>
+                </div>
+                <div class="datosanun" id="proveedor">
+                    <ul>
+                        <li>
+                            Empresa: <?=$datos2['nomEmpresa']?>
+                        </li>
+                        <li>
+                            Telefono: <?=$datos2['telefono']?>
+                        </li>
+                        <li>
+                            Cod Postal: <?=$datos2['codPostal']?>
+                        </li> 
+                        <li>
+                            Email: <?=$datos2['email']?>
                         </li> 
                     </ul>
                 </div>
                 <div id="descripcion">
                     <p>
-                        descripcion Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, ipsa esse explicabo saepe fugit, eligendi dolores id vero delectus, quia suscipit! Voluptatum veniam est laudantium excepturi at debitis, nisi minima.
-                    </p>
+                    <?=$datos['descripcion']?>        
+                </p>
                 </div>
             </div>
         </section>

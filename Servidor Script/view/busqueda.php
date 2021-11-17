@@ -24,7 +24,7 @@
             for($i= 0; $i<count($arrayBusqueda) ; $i++){
                 
                  
-                echo "<a href=\"/cat/$arrayBusqueda[$i]\" class=\"busqueda anuncio anunciob\">$arrayBusqueda[$i]</a>";
+                echo "<a href=\"anuncios.php?anun=$arrayBusqueda[$i]\" class=\"busqueda anuncio anunciob\">$arrayBusqueda[$i]</a>";
                 
                    
         
@@ -36,7 +36,7 @@
         <?php
             $arrayBusqueda= selectComplejisima($baseDatos,"anuncios","nombre","categoria",$_GET["buscador"]);
             for($i= 0; $i<count($arrayBusqueda) ; $i++){
-            echo "<a href=\"/cat/$arrayBusqueda[$i]\" class=\"busqueda anuncio relacionadob\">$arrayBusqueda[$i]</a>";
+            echo "<a href=\"anuncios.php?anun=$arrayBusqueda[$i]\" class=\"busqueda anuncio relacionadob\">$arrayBusqueda[$i]</a>";
         } 
         ?>
     </div>
