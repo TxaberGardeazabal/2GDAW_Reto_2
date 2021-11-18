@@ -22,8 +22,10 @@
 }
 
 .anuncio #imagen {
-    height: 25vh;
-    width: 40vh;
+    height: 12em;
+    width: 90%;
+    max-width: 700px;
+    max-height: 350px;
     margin: 0 auto;
 }
 
@@ -38,16 +40,38 @@
     
 }
 
-.anuncio .datos .datosanun{
+.anuncio .datos #proveedor{
     margin: 3% 0;
 }
 
-.anuncio .datos .datosanun ul {
+.anuncio .datos #proveedor ul {
     list-style-type: none;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    flex-direction: column;
     flex-wrap: wrap;
     font-size: 13px;
     color: grey;
 }
 
+.anuncio .datos #proveedor ul li {
+    margin-top: 5px;
+}
+
+@media screen and (min-width: 700px) {
+    .anuncio .datos #proveedor ul{
+        flex-direction: row;
+    }
+
+    .anuncio #imagen {
+        height: 35vh;
+    }
+
+    #contenedor .anuncio {
+        display: block;
+        margin-left: 0;
+        padding: 3% 
+    }
+}
+
+@media screen and (min-width: 1500px) {}

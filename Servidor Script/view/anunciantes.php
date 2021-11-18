@@ -4,9 +4,11 @@
             <button id="anun" onclick="mostrarAdminAnuncios()">Consultar</button>
             <button id="form" onclick="mostrarFormAnuncio()">A&ntilde;adir</button>
         </div>
-        <div id="div_anuncios">
+        <div id="div_anuncios" style="<?php  /* aqui hay que añadir la propiedad grid-template-rows, 
+        el contenido es '2em repeat(cantidadDeAnuncios/(2,), 1fr)' */?>">
             <h3>Tus anuncios:</h3>
 
+            
             <div class="container_anuncio">
                 <section class="div_anuncio">
                     <h3>Titulo del anuncio</h3>
@@ -60,10 +62,36 @@
                     <button onclick="">Eliminar</button>
                 </div>
             </div>
+            <div class="container_anuncio">
+                <section class="div_anuncio" >
+                    <h3>Titulo del anuncio</h3>
+                    <div class="imagen"><img src="" alt="imagen"></div>
+                    <div class="datos">
+                        <ul>
+                            <li>
+                                Precio:
+                            </li>
+                            <li>
+                                REF: 
+                            </li>
+                            <li>
+                                Localizacion:
+                            </li>
+                            <li>
+                                Descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate suscipit earum repudiandae rem facere reprehenderit alias dolor repellendus autem, ex animi, expedita ipsam velit nulla fuga obcaecati perferendis numquam.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <div class="div_boton">
+                    <button onclick="">Ver en la web</button>
+                    <button onclick="">Eliminar</button>
+                </div>
+            </div>
         </div>
         <div id="div_formulario">
             <h2>Nuevo anuncio</h2>
-            <form method="POST" action="conexionBD.php" enctype="multipart/form-data">
+            <form method="POST" action="/basedatos/conexionBD.php" enctype="multipart/form-data">
                 <label for="tit">Titulo:</label>
                 <input type="text" name="nombre" id="tit" maxlength="20">
                 <label for="ref">Ref:</label>

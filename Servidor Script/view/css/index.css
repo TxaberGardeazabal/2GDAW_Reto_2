@@ -70,6 +70,7 @@ header nav button#inicioSesion{
     border: 1px solid white;
     padding: 1vh 2vh;
     border-radius: 1vh;
+    cursor: pointer;
 }
 #div_Binicio {
     background-color: ivory;
