@@ -25,11 +25,7 @@
                 <input type="text" id="buscador" name="buscador">
                 <input type="submit" id="botonbuscar" value="B">
             </form>
-            <a href="login.html"><button id="inicioSesion"></button></a>
-          
-                
-
-            </div>
+            <button id="inicioSesion" onclick="">i</button>
         </nav>
     </header>
     <div id="todo">

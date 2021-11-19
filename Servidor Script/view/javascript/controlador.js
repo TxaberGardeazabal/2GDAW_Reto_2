@@ -30,7 +30,13 @@ function ocultarMenu() {
 }
 
 function mostrarAdminAnuncios() {
-    $("#div_anuncios").css("display","flex");
+    // por web responsive
+    if (window.innerWidth < 700) {
+        $("#div_anuncios").css("display","flex");
+    }
+    else {
+        $("#div_anuncios").css("display","grid");
+    }
     $("#div_formulario").css("display","none");
 
     // el boton se muestra seleccionado y no hace nada mas
@@ -55,7 +61,7 @@ function mostrarFormAnuncio() {
 
 function verAnuncio(asd) {
     // aqui el link al anuncio
-    window.open("http://localhost:8765/reto%202/index.php");
+    window.open("index.php");
 }
 
 function borrarAnuncio(asd) {
