@@ -6,6 +6,8 @@
 
             <?php
                 
+                
+
                 $arrayCat = select($baseDatos,"categorias","clase");
                 $publicidad = array('anuncio');
                 array_splice($arrayCat,2, 0, $publicidad);
