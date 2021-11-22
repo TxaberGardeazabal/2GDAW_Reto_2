@@ -7,6 +7,7 @@
         <div id="contenedor">
 
             <?php
+
                 if(isset($_COOKIE['recientes'])){
                     echo "<section>";
                     echo "<a class=\"titulo\"> Recientes</a>";
@@ -18,7 +19,8 @@
                     echo "</section>";
                     
                 }
-
+                
+                seccionPopular($baseDatos);
 
 
                 $arrayCat = select($baseDatos,"categorias","clase");

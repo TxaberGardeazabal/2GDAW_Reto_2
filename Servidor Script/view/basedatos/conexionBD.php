@@ -106,6 +106,8 @@ function selectCompleja2($baseDatos, $tabla,$columna,$aComparar ,$dato){
 
         ];
     }
+
+    addVisitas($baseDatos,$datos["id"]);
     return $datos;
 }
 function selectCompleja3($baseDatos, $tabla,$columna,$aComparar ,$dato){
@@ -135,6 +137,7 @@ function selectComplejisima($baseDatos, $tabla,$columna,$aComparar ,$dato){
     }
     return($categorias);
 }
+
 function selectDestacados($baseDatos,$usuario,$anuncio){
     $statement = $baseDatos->prepare("SELECT idAnun FROM destacados WHERE idCli = \"$usuario\""); // usar :
     $statement->execute();
@@ -145,6 +148,30 @@ function selectDestacados($baseDatos,$usuario,$anuncio){
     }
     return false;
 }
+
+function selectPorPopularidad($baseDatos) {
+    $statement = $baseDatos->prepare("SELECT * FROM anuncios ORDER BY visitas desc;");
+    $statement->setFetchMode(PDO::FETCH_ASSOC);
+    $statement->execute();
+
+    $ret = [];
+    $cont = 0;
+    while ($row = $statement->fetch()) {
+        if ($cont < 5) {
+            //echo $row["nombre"];
+            array_push($ret,$row["nombre"]);
+            $cont ++;
+        }
+        else {
+            break;
+        }
+    }
+
+    //echo count($ret);
+    return $ret;
+}
+
+
 function fswitch($i){
     switch($i){
         case 0:
@@ -177,34 +204,21 @@ function esComprador($baseDatos,$idUsuario){
 }
 
 
-////////////// prubeba de imagen
-function cosoImagen() {
-    $archivo = $_FILES['imagen']['name'];
-
-    if (isset($archivo) && $archivo != "") {
-        $tipo = $_FILES['imagen']['type'];
-        $tamano = $_FILES['imagen']['size'];
-        $temp = $_FILES['imagen']['tmp_name'];
-
-        echo $archivo;
-        // validar
-
-        if(move_uploaded_file($temp, "imagenes/".$archivo)) {
-            echo "fue bien?";
-            chmod('imagenes/'.$archivo, 0777);
-            echo '<div><b>Se ha subido correctamente la imagen.</b></div>';
-            echo '<p><img src="imagenes/'.$archivo.'"></p>';
-        }
-        else {
-            echo "problemas al subir imagen";
-        }
-    }
-    else {
-        echo "a";
-    }
+function addVisitas($baseDatos,$idAnuncio) {
+    //echo $idAnuncio;
+    $data = ["id" => $idAnuncio];
+    $statement = $baseDatos->prepare("UPDATE anuncios SET visitas = (visitas + 1) WHERE id = :id ");
+    $statement->execute($data);
 }
 
-if (isset($_POST["imagen"])) {
-    echo "a";
-    cosoImagen();
+function seccionPopular($baseDatos) {
+    echo "<section>";
+        $arrayAnun = selectPorPopularidad($baseDatos);
+        for($j= 0; $j<count($arrayAnun); $j++){
+            $posicion = fswitch($j);
+        
+            echo"<a href=\"anuncios.php?anun=$arrayAnun[$j]\"class=\"anuncio $posicion\">$arrayAnun[$j]</a>";
+    
+        }
+    echo "<a class=\"titulo\">Productos populares</a></section>";
 }
