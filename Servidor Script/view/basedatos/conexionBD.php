@@ -1,3 +1,5 @@
+
+
 <?php
 $host="127.0.0.1";
 $dbname="web_anuncios";
@@ -133,10 +135,16 @@ function selectComplejisima($baseDatos, $tabla,$columna,$aComparar ,$dato){
     }
     return($categorias);
 }
-
-
-
-
+function selectDestacados($baseDatos,$usuario,$anuncio){
+    $statement = $baseDatos->prepare("SELECT idAnun FROM destacados WHERE idCli = \"$usuario\""); // usar :
+    $statement->execute();
+    while($row = $statement->fetch()) {
+        if($row["idAnun"]==$anuncio){
+            return true;
+        }
+    }
+    return false;
+}
 function fswitch($i){
     switch($i){
         case 0:
@@ -157,6 +165,17 @@ function fswitch($i){
     }
     return $posicion;
 }
+function esComprador($baseDatos,$idUsuario){
+    $statement = $baseDatos->prepare("SELECT id FROM compradores"); // usar :
+    $statement->execute();
+    while($row = $statement->fetch()) {
+        if($row["id"]==$idUsuario){
+            return true;
+        }
+    }
+    return false;
+}
+
 
 ////////////// prubeba de imagen
 function cosoImagen() {
