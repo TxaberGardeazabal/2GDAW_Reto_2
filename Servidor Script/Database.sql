@@ -41,7 +41,7 @@ CREATE TABLE anuncios (
   imagen VARCHAR(30),
   descripcion VARCHAR(100),
   localizacion VARCHAR(30),
-  visitas INT,
+  visitas INT DEFAULT 0,
   categoria varchar(20),
   comerciante INT,
   CONSTRAINT ANUN_CAT_FK FOREIGN KEY (categoria) REFERENCES categorias(clase),
@@ -58,7 +58,7 @@ CREATE TABLE destacados (
 
 
 CREATE USER '2gdaw'@'localhost' IDENTIFIED BY '12345Abcde';
-GRANT CREATE,SELECT,DELETE,INSERT ON web_anuncios.* TO '2gdaw'@'localhost';
+GRANT CREATE,SELECT,DELETE,INSERT,UPDATE ON web_anuncios.* TO '2gdaw'@'localhost';
 FLUSH PRIVILEGES;
 
 INSERT INTO usuarios (nomUsuario,contrasena) VALUES ('admin','admin');

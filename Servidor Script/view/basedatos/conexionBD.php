@@ -1,3 +1,5 @@
+
+
 <?php
 $host="127.0.0.1";
 $dbname="web_anuncios";
@@ -104,6 +106,8 @@ function selectCompleja2($baseDatos, $tabla,$columna,$aComparar ,$dato){
 
         ];
     }
+
+    addVisitas($baseDatos,$datos["id"]);
     return $datos;
 }
 function selectCompleja3($baseDatos, $tabla,$columna,$aComparar ,$dato){
@@ -134,7 +138,38 @@ function selectComplejisima($baseDatos, $tabla,$columna,$aComparar ,$dato){
     return($categorias);
 }
 
+function selectDestacados($baseDatos,$usuario,$anuncio){
+    $statement = $baseDatos->prepare("SELECT idAnun FROM destacados WHERE idCli = \"$usuario\""); // usar :
+    $statement->execute();
+    while($row = $statement->fetch()) {
+        if($row["idAnun"]==$anuncio){
+            return true;
+        }
+    }
+    return false;
+}
 
+function selectPorPopularidad($baseDatos) {
+    $statement = $baseDatos->prepare("SELECT * FROM anuncios ORDER BY visitas desc;");
+    $statement->setFetchMode(PDO::FETCH_ASSOC);
+    $statement->execute();
+
+    $ret = [];
+    $cont = 0;
+    while ($row = $statement->fetch()) {
+        if ($cont < 5) {
+            //echo $row["nombre"];
+            array_push($ret,$row["nombre"]);
+            $cont ++;
+        }
+        else {
+            break;
+        }
+    }
+
+    //echo count($ret);
+    return $ret;
+}
 
 
 function fswitch($i){
@@ -156,5 +191,35 @@ function fswitch($i){
             break;    
     }
     return $posicion;
+}
+function esComprador($baseDatos,$idUsuario){
+    $statement = $baseDatos->prepare("SELECT id FROM compradores"); // usar :
+    $statement->execute();
+    while($row = $statement->fetch()) {
+        if($row["id"]==$idUsuario){
+            return true;
+        }
+    }
+    return false;
+}
+
+
+function addVisitas($baseDatos,$idAnuncio) {
+    //echo $idAnuncio;
+    $data = ["id" => $idAnuncio];
+    $statement = $baseDatos->prepare("UPDATE anuncios SET visitas = (visitas + 1) WHERE id = :id ");
+    $statement->execute($data);
+}
+
+function seccionPopular($baseDatos) {
+    echo "<section>";
+        $arrayAnun = selectPorPopularidad($baseDatos);
+        for($j= 0; $j<count($arrayAnun); $j++){
+            $posicion = fswitch($j);
+        
+            echo"<a href=\"anuncios.php?anun=$arrayAnun[$j]\"class=\"anuncio $posicion\">$arrayAnun[$j]</a>";
+    
+        }
+    echo "<a class=\"titulo\">Productos populares</a></section>";
 }
 
