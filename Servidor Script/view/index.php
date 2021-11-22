@@ -6,7 +6,7 @@
 
             <?php
                 
-                
+                seccionPopular($baseDatos);
 
                 $arrayCat = select($baseDatos,"categorias","clase");
                 $publicidad = array('anuncio');
