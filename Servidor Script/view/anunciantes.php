@@ -37,6 +37,7 @@
         }
 
         ?>">
+
             <h3>Tus anuncios:</h3>
             <?php 
             //echo $listaAnun[0]["nombre"];
@@ -60,6 +61,7 @@
             }
             ?>
             <!-- ejemplo de anuncio
+
             <div class="container_anuncio">
                 <section class="div_anuncio">
                     <h3>Titulo del anuncio</h3>

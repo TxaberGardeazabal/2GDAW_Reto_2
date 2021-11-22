@@ -222,3 +222,4 @@ function seccionPopular($baseDatos) {
         }
     echo "<a class=\"titulo\">Productos populares</a></section>";
 }
+
