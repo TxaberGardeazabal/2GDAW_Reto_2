@@ -47,4 +47,3 @@ function registroError(){
         text: 'No ha podido registrarse el nuevo usuario',
     }); 
 }
-
