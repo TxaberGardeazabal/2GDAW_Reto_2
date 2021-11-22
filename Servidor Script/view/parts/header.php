@@ -24,6 +24,7 @@
                 <input type="text" id="buscador" name="buscador">
                 <input type="submit" id="botonbuscar" value="B">
             </form>
+
             <?php
                 session_start();
                 $usuarioNombre =$_SESSION['usuario'];
@@ -34,7 +35,7 @@
             
                 </script>
             <a href="login.html"><button id="inicioSesion"></button></a>
-            </div>
+
         </nav>
     </header>
     <div id="todo">
