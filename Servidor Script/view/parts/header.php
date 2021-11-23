@@ -22,8 +22,20 @@
             
             <form id="busqueda" action="busqueda.php" method="GET">
                 <input type="text" id="buscador" name="buscador">
-                <input type="submit" id="botonbuscar" value="B">
+                <input type="submit" id="botonbuscar" value="B" disabled>
             </form>
+            <script>
+                $("#buscador").blur(function (){
+                    
+                    if ($("#buscador").val() != "") {
+                        $("#botonbuscar").removeAttr("disabled");
+                        
+                    }
+                    else {
+                        $("#botonbuscar").attr("disabled","");
+                    }
+                });
+            </script>
 
             <?php
                 session_start();
