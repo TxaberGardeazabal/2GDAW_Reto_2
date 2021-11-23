@@ -30,31 +30,43 @@
             <div class="datos">
                 <?php
                 if (isset($usuarioNombre)&& esComprador($baseDatos,$idUsuario)){
+                    
                     echo "<button id=\"anadirFav\">favorito</button>" ;
                 }
                 ?>
                 
                 <script>
-                    
-                    function favSuccess(respuesta){
-                        console.log(respuesta);
-                        console.log(respuesta == 1)
-                        if(respuesta ==1)
-
-                            document.getElementById("anadirFav").style.backgroundColor="blue";
-                        else
-                            document.getElementById("anadirFav").style.backgroundColor="red";
-
-                    }function favError(){
-                        alert("faverror");
-                    }
-                 
-                    $('#anadirFav').click(function(){
+                    $(document).ready(function(){
                         $.ajax({    
                             type: "POST",
                             url: "basedatos/favoritos.php",             
                             dataType: "text", 
-                            data: {nombreAnuncio:$("#nombreAnun").text()},         
+                            data: {nombreAnuncio:$("#nombreAnun").text(), cargar:true},         
+                            statusCode: {500:() => favError()},
+                            success: respuesta => respuesta.length > 0 ? favSuccess(respuesta) : alert("error"),
+                            error: (jqXHR, textStatus, errorThrown) =>alert("errorR")
+                        });
+                    });
+                    function favSuccess(respuesta){
+                        console.log(respuesta);
+
+                        if(respuesta ==0)
+                            document.getElementById("anadirFav").style.backgroundColor="blue";
+                        else
+                            document.getElementById("anadirFav").style.backgroundColor="red";
+                    }
+                    
+                    function favError(){
+                        alert("faverror");
+                    }
+                 
+                    $('#anadirFav').click(function(){
+                        alert($("#nombreAnun").text());
+                        $.ajax({    
+                            type: "POST",
+                            url: "basedatos/favoritos.php",             
+                            dataType: "text", 
+                            data: {nombreAnuncio:$("#nombreAnun").text(), cargar:false},         
                             statusCode: {500:() => favError()},
                             success: respuesta => respuesta.length > 0 ? favSuccess(respuesta) : alert("error"),
                             error: (jqXHR, textStatus, errorThrown) =>alert("errorR")
