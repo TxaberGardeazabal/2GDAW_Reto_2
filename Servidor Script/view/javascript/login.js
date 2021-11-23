@@ -4,7 +4,7 @@ function loginSuccess(){
         "Sesion iniciada correctamente",
         'success'
     ).then(function() {
-        window.location.replace("index.php");
+        window.location.replace("./html/home.html");
     });
 }
 
@@ -47,3 +47,4 @@ function registroError(){
         text: 'No ha podido registrarse el nuevo usuario',
     }); 
 }
+
