@@ -37,6 +37,7 @@
                     generarDatos($baseDatos,$arrayCat,$i); 
                 
                     echo "<a href=\"categorias.php?cat=$arrayCat[$i]\" class=\"titulo\"> $arrayCat[$i]</a>";
+                    
                     ?> 
                         <button class="siete"><img src="imagenes/iconos/triangulo.png" alt="imagen"></button>
                     <?php
