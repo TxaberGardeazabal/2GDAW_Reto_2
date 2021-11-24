@@ -76,8 +76,9 @@ function selectSencilla($baseDatos,$tabla,$columna,$aComparar ,$dato){
 
 function selectCompleja($baseDatos, $tabla,$columna,$aComparar ,$dato){
     $categorias = array();
-    $statement = $baseDatos->prepare("SELECT $columna FROM $tabla WHERE $aComparar = \"$dato\"");
-    $statement->execute();
+    $data = ["tabla" => $tabla, "columna" => $columna , "aComparar" => $aComparar, "dato" => $dato];
+    $statement = $baseDatos->prepare("SELECT :columna FROM :tabla WHERE :aComparar = \":dato\"");
+    $statement->execute($data);
     
     while($row = $statement->fetch()) {
         array_push($categorias, $row["$columna"]);
