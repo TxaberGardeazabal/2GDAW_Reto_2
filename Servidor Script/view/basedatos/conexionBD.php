@@ -25,7 +25,7 @@ function generarDatos($baseDatos,$arrayCat,$i){
     }
     if(count($arrayAnun)>4){
         $posicion = fswitch($j);
-        echo"<a href=\"categorias.php?cat=$arrayCat[$i]\" class=\"anuncio $posicion\"><img src=\"imagenes/iconos/triangulo.png\" alt=\"imagen\"></a>";
+        echo"<a href=\"categorias.php?cat=$arrayCat[$i]\" class=\"anuncio $posicion\"><img src=\"imagenes/iconos/mas.png\" alt=\"imagen\"></a>";
     }
 }
 function generarDatos2($baseDatos,$dato){

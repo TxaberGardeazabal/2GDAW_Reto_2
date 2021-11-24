@@ -4,10 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de sesion</title>
     <link rel="stylesheet" href="./css/login.css">
-    <script type="text/javascript" src="./js/login.js"></script>
-    <script type="text/javascript" src="./js/sweetalert2.all.js"></script>
+    <script type="text/javascript" src="./javascript/login.js"></script>
+    <script type="text/javascript" src="./javascript/sweetalert2.all.js"></script>
     <link rel="stylesheet" href="./css/sweetalert2.css">
-    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./javascript/jquery-3.6.0.min.js"></script>
 </head>
 <html lang="es">
     <body>
@@ -30,7 +30,7 @@
                 $('#submit').click(function(){
                     $.ajax({    
                         type: "POST",
-                        url: "./php/selectUsuarios.php",             
+                        url: "./basedatos/selectUsuarios.php",             
                         dataType: "text", 
                         data: {usuario1:$("#usuario").val(), passwd:$("#clave").val()},         
                         statusCode: {500:() => serverError()},
@@ -94,7 +94,7 @@
                         if(($("#login").val()).length>0){//sale al pulsar fuera del alert
                             $.ajax({    
                                 type: "POST",
-                                url: "./php/insertUsuario.php",             
+                                url: "./basedatos/insertUsuario.php",             
                                 dataType: "text", 
                                 data: {tipo:$("#select").val(), usuario1:$("#login").val(), passwd:$("#password").val(),email:$("#correo").val(),empresa:$("#nomEmpresa").val(),telf:$("#telf").val(),cpostal:$('#cpostal').val()},         
                                 statusCode: {500:() => serverError()},

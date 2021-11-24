@@ -41,7 +41,7 @@ CREATE TABLE anuncios (
   imagen VARCHAR(30),
   descripcion VARCHAR(100),
   localizacion VARCHAR(30),
-  visitas INT DEFAULT 0,
+  visitas INT,
   categoria varchar(20),
   comerciante INT,
   CONSTRAINT ANUN_CAT_FK FOREIGN KEY (categoria) REFERENCES categorias(clase),
@@ -58,7 +58,7 @@ CREATE TABLE destacados (
 
 
 CREATE USER '2gdaw'@'localhost' IDENTIFIED BY '12345Abcde';
-GRANT CREATE,SELECT,DELETE,INSERT,UPDATE ON web_anuncios.* TO '2gdaw'@'localhost';
+GRANT CREATE,SELECT,DELETE,INSERT ON web_anuncios.* TO '2gdaw'@'localhost';
 FLUSH PRIVILEGES;
 
 INSERT INTO usuarios (nomUsuario,contrasena) VALUES ('admin','admin');
@@ -72,7 +72,7 @@ INSERT INTO compradores VALUES (LAST_INSERT_ID(),'markel','markel@gmail.com');
 
 INSERT INTO supercategorias VALUES ('vehiculos');
 INSERT INTO supercategorias VALUES ('ropa');
-INSERT INTO supercategorias VALUES ('electrodomesticos');
+INSERT INTO supercategorias VALUES ('casa');
 INSERT INTO supercategorias VALUES ('varios');
 INSERT INTO supercategorias VALUES ('deportes');
 
@@ -87,9 +87,9 @@ INSERT INTO categorias VALUES ('zapatillas','ropa');
 INSERT INTO categorias VALUES ('calcetines','ropa');
 INSERT INTO categorias VALUES ('gorras','ropa');
 
-INSERT INTO categorias VALUES ('lavadoras','electrodomesticos');
-INSERT INTO categorias VALUES ('tostadoras','electrodomesticos');
-INSERT INTO categorias VALUES ('cafeteras','electrodomesticos');
+INSERT INTO categorias VALUES ('lavadoras','casa');
+INSERT INTO categorias VALUES ('tostadoras','casa');
+INSERT INTO categorias VALUES ('cafeteras','casa');
 
 INSERT INTO categorias VALUES ('juguetes','varios');
 INSERT INTO categorias VALUES ('juegos de mesa','varios');

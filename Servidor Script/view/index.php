@@ -25,11 +25,11 @@
 
                 $arrayCat = select($baseDatos,"categorias","clase");
                 $publicidad = array('anuncio');
-                array_splice($arrayCat,2, 0, $publicidad);
-                array_splice($arrayCat,5, 0, $publicidad);
-                array_splice($arrayCat,8, 0, $publicidad);
-                array_splice($arrayCat,11, 0, $publicidad);
-                array_splice($arrayCat,14, 0, $publicidad);
+                array_splice($arrayCat,1, 0, $publicidad);
+                array_splice($arrayCat,4, 0, $publicidad);
+                array_splice($arrayCat,7, 0, $publicidad);
+                array_splice($arrayCat,10, 0, $publicidad);
+                array_splice($arrayCat,13, 0, $publicidad);
                 for($i= 0; $i<count($arrayCat) ; $i++){
                     
                 if($arrayCat[$i+1]=="anuncio"){
