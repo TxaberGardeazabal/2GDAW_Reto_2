@@ -5,15 +5,24 @@
        
         $nombre=$_POST["titulo"];
         $precio=$_POST["precio"];
-        $imagenURL= "../imagenes/" . $_POST["imagen"];
+        $imagenURL= "imagenes/subidas/" . $_POST["imagen"];
         $descripcion=$_POST["descripcion"];
         $localizacion=$_POST["localizacion"];
-        $visitas=null;//Cambiar
-        $categoria=$_POST["categoria"];
-        $comerciante=2; //IdComerciante en Sesion o Cookies
 
-        $statement = $baseDatos->query("INSERT INTO anuncios(nombre,precio,imagen,descripcion,localizacion,visitas,categoria,comerciante) VALUES('$nombre','$precio','$imagenURL','$descripcion','$localizacion',null,'$categoria','$comerciante')");
+        $categoria=$_POST["categoria"];
+
+        $comerciante = IdUsuario($baseDatos,$_SESSION["usuario"]);
+
+        $statement = $baseDatos->query("INSERT INTO anuncios(nombre,precio,imagen,descripcion,localizacion,categoria,comerciante) VALUES('$nombre','$precio','$imagenURL','$descripcion','$localizacion','$categoria','$comerciante')");
         return $statement;
+    }
+
+    function idUsuario($baseDatos,$usuarioNombre){
+        $statement = $baseDatos->query("SELECT id FROM usuarios WHERE nomUsuario = '$usuarioNombre'");
+        while($row = $statement->fetch()){
+            $idUsuario= $row["id"];
+            return $idUsuario;
+        } 
     }
 
     $anuncioInsertado=insertAnuncio($baseDatos);

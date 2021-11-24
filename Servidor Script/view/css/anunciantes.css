@@ -68,6 +68,11 @@ main {
     margin: 0 auto;
 }
 
+.div_anuncio .imagen img{
+    height: 100%;
+    width: 100%;
+}
+
 .div_anuncio .datos ul {
     list-style-type: none;
     margin: 3% 0 0 0;
