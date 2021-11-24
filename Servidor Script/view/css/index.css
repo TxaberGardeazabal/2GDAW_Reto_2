@@ -111,7 +111,7 @@ aside{
     margin-bottom: 0.5vh;
     margin-top: 1vh;
     padding-top: 1vh;
-    background-color: blue;
+    background-color: rgb(48, 145, 100);
     border: 1px solid white;
     border-radius: 1vh;
     text-align: center;
@@ -203,6 +203,8 @@ section{
     color: white;
     border: 1px solid white;
     border-radius: 1vh;
+    padding-top: 1.5vh;
+    text-align: center;
 }
 .anuncio{
     background-color: rgb(247, 247, 247);
