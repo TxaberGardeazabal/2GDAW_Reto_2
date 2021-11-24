@@ -1,9 +1,4 @@
 <?php require"parts/header.php"?>
-
-<script type="text/javascript" src="./javascript/sweetalert2.all.js"></script>
-<link rel="stylesheet" href="./css/sweetalert2.css">
-<script src="./javascript/jquery-3.6.0.min.js"></script>
-<script src="./javascript/controlador.js"></script>
 <?php require"basedatos/conexionBD.php"?>
 <?php require"basedatos/selectAnuncios.php"?>
 <script>
@@ -42,7 +37,6 @@
         }
 
         ?>">
-
             <h3>Tus anuncios:</h3>
             <?php 
             //echo $listaAnun[0]["nombre"];
@@ -66,19 +60,24 @@
             }
             ?>
             <!-- ejemplo de anuncio
-
-
             <div class="container_anuncio">
                 <section class="div_anuncio">
                     <h3>Titulo del anuncio</h3>
                     <div class="imagen"><img src="" alt="imagen"></div>
                     <div class="datos">
                         <ul>
-                            <li>Precio:</li>
-                            <li>REF: </li>
-                            <li>Localizacion:</li>
-                            <li>Descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate suscipit earum repudiandae 
-                            rem facere reprehenderit alias dolor repellendus autem, ex animi, expedita ipsam velit nulla fuga obcaecati perferendis numquam.</li>
+                            <li>
+                                Precio:
+                            </li>
+                            <li>
+                                REF: 
+                            </li>
+                            <li>
+                                Localizacion:
+                            </li>
+                            <li>
+                                Descripcion: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate suscipit earum repudiandae rem facere reprehenderit alias dolor repellendus autem, ex animi, expedita ipsam velit nulla fuga obcaecati perferendis numquam.
+                            </li>
                         </ul>
                     </div>
                 </section>
@@ -103,33 +102,11 @@
                 <input type="text" name="precio" id="pre" placeholder="&euro;" maxlength="9">
                 <label for="img">Imagen:</label>
                 <input type="file" name="imagen" id="img">
-                <label for="cat">Categoria:</label>
-                <select id="categorias">
-                    <script>
-                        $.ajax({    
-                            type: "POST",
-                            url: "./basedatos/selectCategorias.php",             
-                            dataType: "json",         
-                            statusCode: {500:() => serverError()},
-                            success: function(respuesta){
-                                for(var p in respuesta){
-                                    //console.log("Cat: " + respuesta[p][0] +"  ||  supercat:" +respuesta[p][1]);                               
-                                    var nuevoOption=document.createElement("option");
-                                    var texto=document.createTextNode(respuesta[p][0]);
-                                    nuevoOption.appendChild(texto);
-                                    var padre=document.getElementById("categorias");
-                                    padre.appendChild(nuevoOption);
-                                }
-                            },
-                            error: (jqXHR, textStatus, errorThrown) => console.log("error")
-                        });
-                    </script>
-                </select>
                 <label for="desc">Descripcion:</label>
                 <textarea name="descripcion" id="desc" cols="30" rows="10"></textarea>
                 <div>
                     <input type="reset" value="Borrar">
-                    <input id="enviar" type="submit" value="Enviar">
+                    <input type="submit" name="asd" value="Enviar">
                 </div>
             </form>
         </div>

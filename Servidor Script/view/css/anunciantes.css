@@ -140,7 +140,6 @@ main {
     #div_anuncios {
         padding: 3%;
         display: grid;
-        grid-template-rows: 2em 1fr 1fr;
         grid-template-columns: 47% 47%;
         gap: 20px 6%;
     }
@@ -181,7 +180,7 @@ main {
     #div_formulario form{
         display: grid;
         grid-template-columns: repeat(2, auto);
-        grid-template-rows: repeat(9, auto);
+        
         grid-template-areas: 
         "ltit lref"
         "tit ref"
