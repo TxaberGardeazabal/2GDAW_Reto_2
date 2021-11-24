@@ -49,7 +49,7 @@ function generarBotonesDatos($baseDatos,$arraySupCat,$i){
     $arrayCat = selectCompleja($baseDatos,"categorias","clase","superclase",$arraySupCat[$i]);
 
     for($j= 0; $j<count($arrayCat); $j++){
-    echo"<a href=\"categorias.php?cat=$arrayCat[$j]\" class=opcion id=\"$arrayCat[$j]\">$arrayCat[$j]</a>";
+    echo"<a style=\"text-align: center\" href=\"categorias.php?cat=$arrayCat[$j]\" class=opcion id=\"$arrayCat[$j]\">$arrayCat[$j]</a>";
     }
 }
 
