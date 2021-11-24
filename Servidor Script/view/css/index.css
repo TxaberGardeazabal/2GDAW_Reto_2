@@ -98,7 +98,9 @@ aside{
     overflow-y: scroll;
     height: 70vh;
 }
-
+aside div:first-of-type{
+    border-top: none;
+}
 .menu {
     position: relative;
     display: flex;
@@ -380,8 +382,6 @@ footer{
         display: inline-block
         !important;
     }
-    aside:first-item{
-    border-top: 2px solid red !important;
-}
+    
     
 }
