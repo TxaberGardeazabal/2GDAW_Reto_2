@@ -1,11 +1,8 @@
-
-
 <?php
 $host="127.0.0.1";
 $dbname="web_anuncios";
 $user="2gdaw";
 $pass="12345Abcde";
-
 $baseDatos = conectar($host,$dbname,$user,$pass);
 
 function conectar($host,$dbname,$user,$pass){

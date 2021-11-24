@@ -4,7 +4,7 @@ function loginSuccess(){
         "Sesion iniciada correctamente",
         'success'
     ).then(function() {
-        window.location.replace("./html/home.html");
+        window.location.replace("index.php");
     });
 }
 

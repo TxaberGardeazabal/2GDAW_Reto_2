@@ -1,5 +1,5 @@
 <?php
-    require "./conexionBD.php";
+    include "./conexionBD.php";
      session_start();
 
     function selectUsuarios($baseDatos, $tabla="usuarios",$columna1="nomUsuario",$columna2="contrasena"){
@@ -24,7 +24,7 @@
     }
 
     if($correcto==true){
-        echo "Login Correcto";
+        echo "LoginCorrecto";
     }
 
 ?>
