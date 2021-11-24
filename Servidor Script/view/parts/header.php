@@ -79,7 +79,17 @@
                     window.location.replace("compra.html");
                 });
                 $('#perfil').click(function(){
-                    window.location.replace("login.html");
+                    
+                  var sesion = "<?php session_start(); echo $_SESSION['usuario']?>";
+                    if (sesion == "") {
+                        window.location.replace("login.html");
+                    }
+                    else{
+                        var existe = "<?php session_start(); echo $_SESSION['comprador']?>"
+                        if (!existe)
+                        window.location.replace("anunciantes.php");
+                    }
+                    
                 });
             </script>
             </div>

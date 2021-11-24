@@ -11,6 +11,13 @@
         }
         return $usuarios;
     }
+    function idUsuario($baseDatos,$usuarioNombre){
+        $statement = $baseDatos->query("SELECT id FROM usuarios WHERE nomUsuario = '$usuarioNombre'");
+        while($row = $statement->fetch()){
+            $idUsuario= $row["id"];
+            return $idUsuario;
+        } 
+    }
 
     $usuarios=selectUsuarios($baseDatos,"usuarios","nomUsuario","contrasena");
     $correcto=false;
@@ -18,6 +25,10 @@
         if($_POST["usuario1"]==$usuarios[$i][0] && $_POST["passwd"]==$usuarios[$i][1]){
             $correcto=true;
             $nomUsuario=$_POST["usuario1"];
+            $idUsuario = idUsuario($baseDatos,$nomUsuario);
+            if(esComprador($baseDatos,$idUsuario)){
+                $_SESSION["comprador"]="true";
+            }
             $_SESSION["usuario"]=$nomUsuario;
             break;
         }
