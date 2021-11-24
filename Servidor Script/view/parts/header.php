@@ -31,8 +31,27 @@
                     </svg>
                     </button>
                 </div>
-            </form>
-            
+            </form>   
+            <script>
+                $("#buscador").blur(function (){
+                    
+                    if ($("#buscador").val() != "") {
+                        $("#botonbuscar").removeAttr("disabled");
+                        
+                    }
+                    else {
+                        $("#botonbuscar").attr("disabled","");
+                    }
+                });
+            </script>
+
+            <?php
+                session_start();
+                $usuarioNombre =$_SESSION['usuario'];
+                if(isset($usuarioNombre)){
+                    echo "<a href=\"logout.php\">$usuarioNombre</a>";
+                }
+            ?>   
             
             <button id="perfil" type="button" style="width:9em;margin:0 2%"class="btn btn-outline-dark">Perfil
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">

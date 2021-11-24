@@ -217,5 +217,6 @@ function seccionPopular($baseDatos) {
             echo"<a href=\"anuncios.php?anun=$arrayAnun[$j]\"class=\"anuncio $posicion\">$arrayAnun[$j]</a>";
     
         }
+
     echo "<a class=\"titulo\">Populares</a></section>";
 }
