@@ -8,7 +8,7 @@ a{
     text-decoration: none;
 }
 header, nav,footer{
-    background-color: #73ad89;
+    background-color:  #73ad89;
 }
 header{
     height: 20vh;
@@ -67,29 +67,9 @@ header nav button#inicioSesion{
     border: 1px solid white;
     padding: 1vh 2vh;
     border-radius: 1vh;
+    cursor: pointer;
 }
-#div_Binicio {
-    background-color: ivory;
-    position: absolute;
-    top: 19vh;
-    right: 5%;
-    display: none;
-    flex-direction: column;
-    padding: 5% 3%;
-    border-radius: 10px;
-}
-#div_Binicio a {
-    display: block;
-    color: white;
-    background-color: gold;
-    border: 2px solid white;
-    padding: 3px;
-    text-decoration: none;
-}
-#div_Binicio a:active {
-    background-color: rgb(228, 194, 0);
-    color: rgb(219, 219, 219);
-}
+
 
 #todo{
     background-color: black;
@@ -100,8 +80,6 @@ aside{
     width: 25%;
     position: relative;
     z-index: 3;
-
-    /*display: none;*/
     display: none;
     position: relative;
     margin-top: 20vh;
@@ -165,7 +143,6 @@ div#contenedor{
     position: relative;
     width: 100%;
     margin-top: 20vh;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
