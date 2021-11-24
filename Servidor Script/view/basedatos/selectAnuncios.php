@@ -3,7 +3,7 @@
     {
         $query = $baseDatos->prepare("SELECT * FROM anuncios WHERE comerciante = (SELECT id FROM usuarios WHERE nomUsuario = :nombre);");
         $query->setFetchMode(PDO::FETCH_ASSOC);
-        $data = ["nombre" => "admin"];
+        $data = ["nombre" => $_SESSION["usuario"]];
         $query->execute($data); // $_SESSION["usuario"]
 
         $ret = array();
@@ -17,7 +17,7 @@
     function selectContacto($baseDatos) {
         $query = $baseDatos->prepare("SELECT nomEmpresa, telefono FROM comerciantes WHERE id = (SELECT id FROM usuarios WHERE nomUsuario = :nombre);");
         $query->setFetchMode(PDO::FETCH_ASSOC);
-        $data = ["nombre" => "admin"];
+        $data = ["nombre" => $_SESSION["usuario"]];
         $query->execute($data); // $_SESSION["usuario"]
         
         $res = $query->fetch();

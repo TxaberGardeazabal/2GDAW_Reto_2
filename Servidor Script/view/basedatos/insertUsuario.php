@@ -12,8 +12,9 @@
             $codPostal=$_POST["cpostal"];
             $statement2 = $baseDatos->query("INSERT INTO comerciantes VALUES(LAST_INSERT_ID(),'$empresa','$telf','$codPostal','$email')");
         }else{
+            $nom = $_POST["nombre"];
             $email=$_POST["email"];
-            $statement2 = $baseDatos->query("INSERT INTO compradores VALUES(LAST_INSERT_ID(),'$val1','$email')");
+            $statement2 = $baseDatos->query("INSERT INTO compradores VALUES(LAST_INSERT_ID(),'$nom','$email')");
         }
         return $statement;
     }
