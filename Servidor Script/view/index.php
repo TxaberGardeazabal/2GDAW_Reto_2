@@ -10,7 +10,7 @@
 
                 if(isset($_COOKIE['recientes'])){
                     echo "<section>";
-                    echo "<a class=\"titulo\"> Recientes</a>";
+                    echo "<a class=\"titulo\"> De inter&eacute;s</a>";
                     $arrayRecientes= explode(",",$_COOKIE['recientes']);
                     for($i= 0; $i<count($arrayRecientes)&& $i<5; $i++){
                         $posicion = fswitch($i);
@@ -37,6 +37,7 @@
                     generarDatos($baseDatos,$arrayCat,$i); 
                 
                     echo "<a href=\"categorias.php?cat=$arrayCat[$i]\" class=\"titulo\"> $arrayCat[$i]</a>";
+                    
                     ?> 
                         <button class="siete"><img src="imagenes/iconos/triangulo.png" alt="imagen"></button>
                     <?php
