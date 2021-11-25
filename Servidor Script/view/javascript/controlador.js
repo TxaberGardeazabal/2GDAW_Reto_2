@@ -1,20 +1,3 @@
-/*function setLinksAside() {
-    $(".menu .opcion").each(function (id,val) {
-        //console.log(val);
-        $(val).attr("onclick","algo");
-    });
-}
-
-function link() {
-    $(".menu").each(function (id,val) {
-        $(val).html('<a class="opcion">Opcion1</a>');
-    })
-}
-
-//setLinksAside();
-//link();
-*/
-
 function mostrarMenu() {
     $("aside").css("display","block");
     $("#botonCerrarMenu").css("display","block");
@@ -71,4 +54,15 @@ function borrarAnuncio(asd) {
         // borrar
     }
         // no borrar
+}
+
+function siACookies() {
+    sessionStorage.cookieEnabled = true;
+    $("#cookies").css("display","none");
+}
+
+if ($("#cookies") != "") {
+    if (sessionStorage.cookieEnabled) {
+        $("#cookies").css("display","none");
+    }
 }

@@ -232,11 +232,37 @@ section{
     border-radius: 1vh;
      text-decoration: none;
 }
+#cookies {
+    position: fixed;
+    bottom: 0;
+    width: 60%;
+    z-index: 3;
+    padding: 10px;
+    background-color: #73ad89;
+}
 footer{
-    background-color: salmon;
     height: 10vh;
     width: 100%;
     position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+footer p a{
+    text-decoration: none;
+    color: white;
+}
+
+#facebook::before {
+    content: url(../imagenes/iconos/facebook.png);
+    width: 30px;
+    height: 30px;
+}
+
+#twitter::before {
+    content: url(../imagenes/iconos/twitter.png);
+    width: 30px;
+    height: 30px;
 }
 
 @media screen and (min-width: 700px){
