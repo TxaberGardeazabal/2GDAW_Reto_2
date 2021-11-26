@@ -107,9 +107,9 @@
                                 Swal.showValidationMessage(`Las contraseñas no coinciden.`);
                             }
 
-                            regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d){8,16}$");
-                            // este no funciona bien y se ignora
-                            if (regex.test(password)) {
+                            regex = new RegExp("^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$");
+                            
+                            if (!regex.test(password)) {
                             	Swal.showValidationMessage(`la contraseña debe der mayor que 8 y contener una letra minuscula, una mayuscula y un numero.`);
                             }
 
