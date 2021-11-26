@@ -1,0 +1,52 @@
+#contenedor {
+    min-height: 70vh;
+}
+
+#contenedor .anuncio {
+    display: block;
+    margin-left: 0;
+    padding: 5% 
+}
+
+.anuncio button {
+    float: right;
+    width: 5vh;
+    height: 5vh;
+
+    border-radius: 1vh;
+    border: 1px solid white;
+}
+.anuncio h2 {
+    margin-bottom: 5%;
+}
+
+.anuncio #imagen {
+    height: 25vh;
+    width: 40vh;
+    margin: 0 auto;
+}
+
+.anuncio #imagen img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.anuncio b {
+    font-size: 28px;
+    color: red;
+    
+}
+
+.anuncio .datos .datosanun{
+    margin: 3% 0;
+}
+
+.anuncio .datos .datosanun ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: grey;
+}
+
