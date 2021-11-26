@@ -78,13 +78,18 @@
                     window.location.replace("logout.php");
                 });
                 $("#carrito").click(function(){
-                    window.location.replace("compra.html");
+                    window.location.replace("compra.php");
                 });
                 $('#perfil').click(function(){
                     
                   var sesion = "<?php session_start(); echo $_SESSION['usuario']?>";
                     if (sesion == "") {
-                        window.location.replace("login.html");
+                        alert(window.location.pathname)
+                        if(window.location.pathname=="/view/compra.php"){
+                            window.location.replace("login.html");
+                        }else{
+                            window.location.replace("login.html");
+                        }
                     }
                     else{
                         var existe = "<?php session_start(); echo $_SESSION['comprador']?>"
