@@ -1,7 +1,5 @@
 <?php require"parts/header.php"?>
 <?php require"basedatos/conexionBD.php"?>
-<?php require"basedatos/recientes.php"?>
-
 <?php require"parts/aside.php"?>
     
         <div id="contenedor">
@@ -40,10 +38,9 @@
                     
                 if($arrayCat[$i+1]=="anuncio"){
                     echo "<section class=\"plus\">";
-                    generarDatos($baseDatos,$arrayCat,$i); 
-                
                     echo "<a href=\"categorias.php?cat=$arrayCat[$i]\" class=\"titulo\"> $arrayCat[$i]</a>";
-                    
+
+                    generarDatos($baseDatos,$arrayCat,$i); 
                     ?> 
                         <button class="siete"><img src="imagenes/iconos/triangulo.png" alt="imagen"></button>
                     <?php
@@ -60,6 +57,10 @@
             
                echo "<a href=\"categorias.php?cat=$arrayCat[$i]\" class=\"titulo\"> $arrayCat[$i]</a>";
                ?>   
+                
+                   
+
+           
             <?php
                 }
                 echo "</section>";

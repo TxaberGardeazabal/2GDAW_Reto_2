@@ -22,7 +22,7 @@
     $usuarios=insertUsuario($baseDatos,"usuarios",$_POST["usuario1"],$_POST["passwd"]);
 
     if($usuarios){
-        $_SESSION["firstname"] = "Peter";
+
         echo "Insertado"; 
     }
 ?>

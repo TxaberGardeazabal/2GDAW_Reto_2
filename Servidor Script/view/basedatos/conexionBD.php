@@ -1,5 +1,3 @@
-
-
 <?php
 $host="127.0.0.1";
 $dbname="web_anuncios";
@@ -106,8 +104,6 @@ function selectCompleja2($baseDatos, $tabla,$columna,$aComparar ,$dato){
 
         ];
     }
-
-    addVisitas($baseDatos,$datos["id"]);
     return $datos;
 }
 function selectCompleja3($baseDatos, $tabla,$columna,$aComparar ,$dato){
@@ -270,3 +266,4 @@ function seccionFavoritos($baseDatos,$nombreUsuario) {
     }
    echo "<a class=\"titulo\">Favoritos</a></section>";
 }
+

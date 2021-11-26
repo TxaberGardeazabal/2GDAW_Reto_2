@@ -28,17 +28,15 @@
         <script>
               $("#formulario").submit((e) => e.preventDefault());
                 $('#submit').click(function(){
-                	
-						$.ajax({    
-							type: "POST",
-							url: "./basedatos/selectUsuarios.php",             
-							dataType: "text", 
-							data: {usuario1:$("#usuario").val(), passwd:$("#clave").val()},         
-							statusCode: {500:() => serverError()},
-							success: respuesta => respuesta.length > 0 ? loginSuccess() : loginError(),
-							error: (jqXHR, textStatus, errorThrown) => ajaxError(textStatus,errorThrown)
-						});
-                   
+                    $.ajax({    
+                        type: "POST",
+                        url: "./basedatos/selectUsuarios.php",             
+                        dataType: "text", 
+                        data: {usuario1:$("#usuario").val(), passwd:$("#clave").val()},         
+                        statusCode: {500:() => serverError()},
+                        success: respuesta => respuesta.length > 0 ? loginSuccess() : loginError(),
+                        error: (jqXHR, textStatus, errorThrown) => ajaxError(textStatus,errorThrown)
+                    });
                 });
                 $('#registrarme').click(function(){
                     Swal.fire({
