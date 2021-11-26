@@ -83,7 +83,7 @@ header nav button#inicioSesion{
 
 
 #todo{
-    background-color: black;
+    background-color: #c5f0d5;
 }
 
 aside{
@@ -100,6 +100,9 @@ aside{
 }
 aside div:first-of-type{
     border-top: none;
+}
+a.opcion{
+    text-align: center;
 }
 .menu {
     position: relative;
@@ -239,6 +242,8 @@ section{
     z-index: 3;
     padding: 10px;
     background-color: #73ad89;
+    border: 2px solid white;
+    border-top-right-radius: 20px;
 }
 footer{
     height: 10vh;
@@ -278,7 +283,6 @@ footer p a{
     }
     #todo{
         position: relative;
-        background-color: #c5f0d5;
         width: 100%;
         display: flex;
         
@@ -408,6 +412,5 @@ footer p a{
         display: inline-block
         !important;
     }
-    
     
 }

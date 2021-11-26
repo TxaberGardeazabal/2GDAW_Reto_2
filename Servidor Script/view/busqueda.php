@@ -3,7 +3,7 @@
 <?php require"parts/aside.php"?>
 
 <div id="contenedor">
-    <h2 style="color: wheat;">Categorias</h2>
+    <h2 class="tituloBus">Categorias</h2>
     <div id=categoriasbusqueda>
         <?php
             
@@ -16,7 +16,7 @@
             }
         ?>
     </div>  
-    <h2 style="color: wheat;">Anuncios</h2>
+    <h2 class="tituloBus">Anuncios</h2>
     <div id="anunciosbusqueda" >
         <?php
             
@@ -26,7 +26,7 @@
             }
         ?>  
     </div>
-    <h2 style="color: wheat;">Relacionados</h2>
+    <h2 class="tituloBus">Relacionados</h2>
     <div id="anunciosbusqueda" >
         <?php
             $arrayBusqueda= selectComplejisima($baseDatos,"anuncios","nombre","categoria",$_GET["buscador"]);
