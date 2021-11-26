@@ -1,8 +1,11 @@
+
+
 <?php
 $host="127.0.0.1";
 $dbname="web_anuncios";
 $user="2gdaw";
 $pass="12345Abcde";
+
 $baseDatos = conectar($host,$dbname,$user,$pass);
 
 function conectar($host,$dbname,$user,$pass){
@@ -25,7 +28,7 @@ function generarDatos($baseDatos,$arrayCat,$i){
     }
     if(count($arrayAnun)>4){
         $posicion = fswitch($j);
-        echo"<a href=\"categorias.php?cat=$arrayCat[$i]\" class=\"anuncio $posicion\"><img src=\"imagenes/iconos/mas.png\" alt=\"imagen\"></a>";
+        echo"<a href=\"categorias.php?cat=$arrayCat[$i]\" class=\"anuncio $posicion\"><img src=\"imagenes/iconos/triangulo.png\" alt=\"imagen\"></a>";
     }
 }
 function generarDatos2($baseDatos,$dato){
@@ -49,7 +52,7 @@ function generarBotonesDatos($baseDatos,$arraySupCat,$i){
     $arrayCat = selectCompleja($baseDatos,"categorias","clase","superclase",$arraySupCat[$i]);
 
     for($j= 0; $j<count($arrayCat); $j++){
-    echo"<a style=\"text-align: center\" href=\"categorias.php?cat=$arrayCat[$j]\" class=opcion id=\"$arrayCat[$j]\">$arrayCat[$j]</a>";
+    echo"<a href=\"categorias.php?cat=$arrayCat[$j]\" class=opcion id=\"$arrayCat[$j]\">$arrayCat[$j]</a>";
     }
 }
 
@@ -76,9 +79,8 @@ function selectSencilla($baseDatos,$tabla,$columna,$aComparar ,$dato){
 
 function selectCompleja($baseDatos, $tabla,$columna,$aComparar ,$dato){
     $categorias = array();
-    $data = ["tabla" => $tabla, "columna" => $columna , "aComparar" => $aComparar, "dato" => $dato];
-    $statement = $baseDatos->prepare("SELECT :columna FROM :tabla WHERE :aComparar = \":dato\"");
-    $statement->execute($data);
+    $statement = $baseDatos->prepare("SELECT $columna FROM $tabla WHERE $aComparar = \"$dato\"");
+    $statement->execute();
     
     while($row = $statement->fetch()) {
         array_push($categorias, $row["$columna"]);
@@ -168,7 +170,20 @@ function selectPorPopularidad($baseDatos) {
     //echo count($ret);
     return $ret;
 }
+function selectPorFavoritos($baseDatos, $idUsuario) {
+    $statement = $baseDatos->prepare("SELECT idAnun FROM destacados WHERE idCli = \"$idUsuario\"");
+    $statement->execute();
+    $favs = array();
+    $cont = 0;
+    while($row = $statement->fetch()) {
+        if ($cont < 5) {
+        array_push($favs, $row["idAnun"]);
+    }
+        $cont ++;
+    }
+    return($favs);
 
+}
 
 function fswitch($i){
     switch($i){
@@ -218,6 +233,40 @@ function seccionPopular($baseDatos) {
             echo"<a href=\"anuncios.php?anun=$arrayAnun[$j]\"class=\"anuncio $posicion\">$arrayAnun[$j]</a>";
     
         }
-
     echo "<a class=\"titulo\">Populares</a></section>";
+}
+
+function idUsuario2($baseDatos,$usuarioNombre){
+        $statement = $baseDatos->query("SELECT id FROM usuarios WHERE nomUsuario = '$usuarioNombre'");
+        while($row = $statement->fetch()){
+            $idUsuario= $row["id"];
+            return $idUsuario;
+        } 
+}
+
+function nombreAnuncio($baseDatos,$idAnun){
+    $statement = $baseDatos->query("SELECT nombre FROM anuncios WHERE id = '$idAnun'");
+    while($row = $statement->fetch()){
+        $nombreAnuncio= $row["nombre"];
+        return $nombreAnuncio;
+    } 
+}
+
+function seccionFavoritos($baseDatos,$nombreUsuario) {
+    echo "<section>";
+        $idUsuario = idUsuario2($baseDatos,$nombreUsuario);
+        
+        $arrayAnun = selectPorFavoritos($baseDatos,$idUsuario);
+        if (count($arrayAnun)!=0){
+        for($j= 0; $j<count($arrayAnun); $j++){
+            $posicion = fswitch($j);
+            $nombreAnuncio = nombreAnuncio($baseDatos,$arrayAnun[$j]);
+            echo"<a href=\"anuncios.php?anun=$nombreAnuncio\"class=\"anuncio $posicion\">$nombreAnuncio</a>";
+        }
+
+        }else{
+             echo"<a class=\"anuncio primero\">Aún no hay favoritos</a>";
+
+    }
+   echo "<a class=\"titulo\">Favoritos</a></section>";
 }

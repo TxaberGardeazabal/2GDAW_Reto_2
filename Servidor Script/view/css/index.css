@@ -101,6 +101,9 @@ aside{
 aside div:first-of-type{
     border-top: none;
 }
+a.opcion{
+    text-align: center;
+}
 .menu {
     position: relative;
     display: flex;

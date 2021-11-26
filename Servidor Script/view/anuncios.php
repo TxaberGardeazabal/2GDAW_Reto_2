@@ -61,7 +61,7 @@
                     }
                  
                     $('#anadirFav').click(function(){
-                        alert($("#nombreAnun").text());
+                      
                         $.ajax({    
                             type: "POST",
                             url: "basedatos/favoritos.php",             
