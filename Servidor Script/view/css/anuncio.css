@@ -8,7 +8,14 @@
     padding: 5% 
 }
 
+.anuncio button {
+    float: right;
+    width: 5vh;
+    height: 5vh;
 
+    border-radius: 1vh;
+    border: 1px solid white;
+}
 .anuncio h2 {
     margin-bottom: 5%;
 }

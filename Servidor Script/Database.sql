@@ -72,7 +72,7 @@ INSERT INTO compradores VALUES (LAST_INSERT_ID(),'markel','markel@gmail.com');
 
 INSERT INTO supercategorias VALUES ('vehiculos');
 INSERT INTO supercategorias VALUES ('ropa');
-INSERT INTO supercategorias VALUES ('electrodomesticos');
+INSERT INTO supercategorias VALUES ('casa');
 INSERT INTO supercategorias VALUES ('varios');
 INSERT INTO supercategorias VALUES ('deportes');
 
@@ -87,9 +87,9 @@ INSERT INTO categorias VALUES ('zapatillas','ropa');
 INSERT INTO categorias VALUES ('calcetines','ropa');
 INSERT INTO categorias VALUES ('gorras','ropa');
 
-INSERT INTO categorias VALUES ('lavadoras','electrodomesticos');
-INSERT INTO categorias VALUES ('tostadoras','electrodomesticos');
-INSERT INTO categorias VALUES ('cafeteras','electrodomesticos');
+INSERT INTO categorias VALUES ('lavadoras','casa');
+INSERT INTO categorias VALUES ('tostadoras','casa');
+INSERT INTO categorias VALUES ('cafeteras','casa');
 
 INSERT INTO categorias VALUES ('juguetes','varios');
 INSERT INTO categorias VALUES ('juegos de mesa','varios');
@@ -100,7 +100,6 @@ INSERT INTO categorias VALUES ('balonmano','deportes');
 INSERT INTO categorias VALUES ('quidditch','deportes');
 INSERT INTO categorias VALUES ('rugby','deportes');
 INSERT INTO categorias VALUES ('voley','deportes');
-
 
 
 INSERT INTO anuncios (nombre,precio,imagen,descripcion,localizacion,categoria,comerciante)
@@ -367,8 +366,6 @@ INSERT INTO anuncios (nombre,precio,imagen,descripcion,localizacion,categoria,co
 
 
 INSERT INTO anuncios (nombre,precio,imagen,descripcion,localizacion,categoria,comerciante) VALUES ('Calcetines Lana',4,'./imagenes/subidas/calcetines1.png','Calcetines Lana','Vitoria-Gasteiz','calcetines',1);
-
-
 
 
 INSERT INTO destacados VALUES (3,2);

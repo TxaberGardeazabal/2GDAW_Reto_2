@@ -1,10 +1,11 @@
+
 function loginSuccess(){
     Swal.fire(
         'Login Correcto',
         "Sesion iniciada correctamente",
         'success'
     ).then(function() {
-        window.location.replace("./html/home.html");
+        window.location.replace("index.php");
     });
 }
 
