@@ -134,8 +134,52 @@ function selectComplejisima($baseDatos, $tabla,$columna,$aComparar ,$dato){
     return($categorias);
 }
 
+function selectDestacados($baseDatos,$usuario,$anuncio){
+    $statement = $baseDatos->prepare("SELECT idAnun FROM destacados WHERE idCli = \"$usuario\""); // usar :
+    $statement->execute();
+    while($row = $statement->fetch()) {
+        if($row["idAnun"]==$anuncio){
+            return true;
+        }
+    }
+    return false;
+}
 
+function selectPorPopularidad($baseDatos) {
+    $statement = $baseDatos->prepare("SELECT * FROM anuncios ORDER BY visitas desc;");
+    $statement->setFetchMode(PDO::FETCH_ASSOC);
+    $statement->execute();
 
+    $ret = [];
+    $cont = 0;
+    while ($row = $statement->fetch()) {
+        if ($cont < 5) {
+            //echo $row["nombre"];
+            array_push($ret,$row["nombre"]);
+            $cont ++;
+        }
+        else {
+            break;
+        }
+    }
+
+    //echo count($ret);
+    return $ret;
+}
+function selectPorFavoritos($baseDatos, $idUsuario) {
+    $statement = $baseDatos->prepare("SELECT idAnun FROM destacados WHERE idCli = \"$idUsuario\"");
+    $statement->execute();
+    $favs = array();
+    $cont = 0;
+    while($row = $statement->fetch()) {
+        if ($cont < 5) {
+        array_push($favs, $row["idAnun"]);
+    }
+        $cont ++;
+    }
+    return($favs);
+
+}
 
 function fswitch($i){
     switch($i){
@@ -157,35 +201,69 @@ function fswitch($i){
     }
     return $posicion;
 }
-
-////////////// prubeba de imagen
-function cosoImagen() {
-    $archivo = $_FILES['imagen']['name'];
-
-    if (isset($archivo) && $archivo != "") {
-        $tipo = $_FILES['imagen']['type'];
-        $tamano = $_FILES['imagen']['size'];
-        $temp = $_FILES['imagen']['tmp_name'];
-
-        echo $archivo;
-        // validar
-
-        if(move_uploaded_file($temp, "imagenes/".$archivo)) {
-            echo "fue bien?";
-            chmod('imagenes/'.$archivo, 0777);
-            echo '<div><b>Se ha subido correctamente la imagen.</b></div>';
-            echo '<p><img src="imagenes/'.$archivo.'"></p>';
-        }
-        else {
-            echo "problemas al subir imagen";
+function esComprador($baseDatos,$idUsuario){
+    $statement = $baseDatos->prepare("SELECT id FROM compradores"); // usar :
+    $statement->execute();
+    while($row = $statement->fetch()) {
+        if($row["id"]==$idUsuario){
+            return true;
         }
     }
-    else {
-        echo "a";
-    }
+    return false;
 }
 
-if (isset($_POST["imagen"])) {
-    echo "a";
-    cosoImagen();
+
+function addVisitas($baseDatos,$idAnuncio) {
+    //echo $idAnuncio;
+    $data = ["id" => $idAnuncio];
+    $statement = $baseDatos->prepare("UPDATE anuncios SET visitas = (visitas + 1) WHERE id = :id ");
+    $statement->execute($data);
 }
+
+function seccionPopular($baseDatos) {
+    echo "<section>";
+        $arrayAnun = selectPorPopularidad($baseDatos);
+        for($j= 0; $j<count($arrayAnun); $j++){
+            $posicion = fswitch($j);
+        
+            echo"<a href=\"anuncios.php?anun=$arrayAnun[$j]\"class=\"anuncio $posicion\">$arrayAnun[$j]</a>";
+    
+        }
+    echo "<a class=\"titulo\">Populares</a></section>";
+}
+
+function idUsuario2($baseDatos,$usuarioNombre){
+        $statement = $baseDatos->query("SELECT id FROM usuarios WHERE nomUsuario = '$usuarioNombre'");
+        while($row = $statement->fetch()){
+            $idUsuario= $row["id"];
+            return $idUsuario;
+        } 
+}
+
+function nombreAnuncio($baseDatos,$idAnun){
+    $statement = $baseDatos->query("SELECT nombre FROM anuncios WHERE id = '$idAnun'");
+    while($row = $statement->fetch()){
+        $nombreAnuncio= $row["nombre"];
+        return $nombreAnuncio;
+    } 
+}
+
+function seccionFavoritos($baseDatos,$nombreUsuario) {
+    echo "<section>";
+        $idUsuario = idUsuario2($baseDatos,$nombreUsuario);
+        
+        $arrayAnun = selectPorFavoritos($baseDatos,$idUsuario);
+        if (count($arrayAnun)!=0){
+        for($j= 0; $j<count($arrayAnun); $j++){
+            $posicion = fswitch($j);
+            $nombreAnuncio = nombreAnuncio($baseDatos,$arrayAnun[$j]);
+            echo"<a href=\"anuncios.php?anun=$nombreAnuncio\"class=\"anuncio $posicion\">$nombreAnuncio</a>";
+        }
+
+        }else{
+             echo"<a class=\"anuncio primero\">Aún no hay favoritos</a>";
+
+    }
+   echo "<a class=\"titulo\">Favoritos</a></section>";
+}
+
