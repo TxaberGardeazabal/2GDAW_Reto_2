@@ -119,7 +119,7 @@
             const titulo = $("#tit").val();
             const localizacion = $("#loc").val();
             const precio = $("#pre").val();
-            const categoria = "baloncesto";// $("#categorias").val();
+            const categoria = $("#categorias").val();
             const descripcion = $("#desc").val();
             const imagen = $("#img").val();
             const extensionImagen=  imagen.split('.')[1];
