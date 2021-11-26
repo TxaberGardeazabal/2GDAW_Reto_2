@@ -1,0 +1,42 @@
+
+div#categoriasbusqueda{
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(4,25%);
+    min-height: 7vh;
+    max-height: 25vh;
+    justify-self: center;
+}
+
+
+a.busqueda{
+    padding: 1vh 0vh;
+    text-align: center;
+    background-color: blueviolet;
+    border: 1px solid white;
+    border-radius: 1vh;
+    z-index: 2;
+    font-size: 1.4em;
+    margin: 5px;
+    align-self: center;
+}
+a.categoria{
+    background-color: rgb(125, 182, 144);
+    text-decoration:none;  
+}
+a.anunciob{
+    background-color: white; 
+}
+a.relacionadob{
+    background-color: white;  
+}
+.tituloBus{
+    background-color: rgb(46, 46, 46);
+    color: white;
+    border: 1px solid white;
+    border-radius: 1vh;
+    padding-top: 1.4vh;
+    text-align: center;
+    text-decoration: none;
+    height: 7vh;
+}

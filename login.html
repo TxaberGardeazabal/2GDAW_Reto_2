@@ -1,0 +1,161 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesion</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <script type="text/javascript" src="./javascript/login.js"></script>
+    <script type="text/javascript" src="./javascript/sweetalert2.all.js"></script>
+    <link rel="stylesheet" href="./css/sweetalert2.css">
+    <script src="./javascript/jquery-3.6.0.min.js"></script>
+</head>
+
+    <body>
+        <div id="login-container">
+            <h1 id="titulo">Iniciar Sesión</h1>
+            <div id="foto"></div>
+            <form id="formulario">
+                <p>Usuario</p>
+                <input id="usuario" class="field" type="text" name="usuario" placeholder="Introduce tu nombre de usuario"><br>
+                <p>Contraseña</p>
+                <input id="clave" class="field" type="password" name="pass" placeholder="Introduce tu contraseña"><br>
+                <input id="recordar" type="checkbox"> Recordarme<br>
+                <button type="submit" id="submit">Login</button>
+            </form>
+            <a style="margin-left: 8%">No tienes cuenta?</a>  <a id="registrarme" style="color: #85c98f;cursor: pointer;">Registrarme</a>
+        </div>
+        <script>
+              $("#formulario").submit((e) => e.preventDefault());
+                $('#submit').click(function(){
+                    $.ajax({    
+                        type: "POST",
+                        url: "./basedatos/selectUsuarios.php",             
+                        dataType: "text", 
+                        data: {usuario1:$("#usuario").val(), passwd:$("#clave").val()},         
+                        statusCode: {500:() => serverError()},
+                        success: respuesta => respuesta.length > 0 ? loginSuccess() : loginError(),
+                        error: (jqXHR, textStatus, errorThrown) => ajaxError(textStatus,errorThrown)
+                    });
+                });
+                $('#registrarme').click(function(){
+                    Swal.fire({
+                        title: 'Crear usuario',
+                        html: `<select id="select" class="swal2-select"><option>Comprador</option><option>Comerciante</option></select>
+                        <input type="text" id="login" class="swal2-input" placeholder="Nombre de usuario*">
+                        <input type="password" id="password" class="swal2-input" placeholder="Indica una contraseña*">
+                        <input type="password" id="password2" class="swal2-input" placeholder="Repite tu contraseña*">
+                        <input type="text" id="nombre" class="swal2-input" placeholder="Tu nombre*">
+                        <input type="email" id="correo" class="swal2-input" placeholder="Indica un email*">
+                        <input type="email" id="correo2" class="swal2-input" placeholder="Repite tu email*">
+                        <input type="text" id="nomEmpresa" class="swal2-input" placeholder="Nombre de la empresa*" style="display: none;">
+                        <input type="tel" id="telf" class="swal2-input" placeholder="Numero de telefono*" style="display: none;">
+                        <input type="tel" id="cpostal" class="swal2-input" placeholder="Codigo postal*" maxlength="6" style="display: none;">`,
+                        confirmButtonText: 'Crear',
+                        focusConfirm: false,
+                        showLoaderOnConfirm:true,
+                        preConfirm: () => {//Comprobaciones
+                            const type = Swal.getPopup().querySelector('#select').value;
+                            const login = Swal.getPopup().querySelector('#login').value;
+                            const password = Swal.getPopup().querySelector('#password').value;
+                            const password2 = Swal.getPopup().querySelector('#password2').value;
+                            let nombre = Swal.getPopup().querySelector('#nombre').value;
+                            const email = Swal.getPopup().querySelector('#correo').value;
+                            const email2 = Swal.getPopup().querySelector('#correo2').value;
+                            const nomEmpresa = Swal.getPopup().querySelector('#nomEmpresa').value;
+                            const telf = Swal.getPopup().querySelector('#telf').value;
+                            const cpostal = Swal.getPopup().querySelector('#cpostal').value;
+
+                            
+                            let regex;
+                            if(type=="Comerciante"){
+                            	regex = new RegExp("^[0-9]{5}$");
+								if(!regex.test(cpostal)){
+								    Swal.showValidationMessage(`codigo postal invalido.`);
+								}
+
+								regex = new RegExp("^[0-9]{9}$");
+								if(!regex.test(telf)){
+								    Swal.showValidationMessage(`telefono invalido.`);
+								}
+
+                            	regex = new RegExp("^([a-z]|[A-Z]|[0-9]){5,50}$");
+                            	if (!regex.test(nomEmpresa)) {
+                            		Swal.showValidationMessage(`nombre de empresa invalido.`);
+                            	}
+                            }
+
+                            if(email!=email2){
+                                Swal.showValidationMessage(`Los email no coinciden.`);
+                            }
+
+                            regex = new RegExp("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$");
+                            if(!regex.test(email)){
+                                Swal.showValidationMessage(`Formato de email invalido.`);
+                            }
+
+                            if (type=="Comprador") {
+								regex = new RegExp("^[A-Z]{1}[a-z]{1,19}$");
+								if (!regex.test(nombre)) {
+									Swal.showValidationMessage(`empieza tu nombre con mayuscula.`);
+								}
+                            }
+
+                            if(password!=password2){
+                                Swal.showValidationMessage(`Las contraseñas no coinciden.`);
+                            }
+
+                            regex = new RegExp("^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$");
+                            
+                            if (!regex.test(password)) {
+                            	Swal.showValidationMessage(`la contraseña debe der mayor que 8 y contener una letra minuscula, una mayuscula y un numero.`);
+                            }
+
+                            regex = new RegExp("^.{5,20}$");
+                            if (!regex.test(login)) {
+                            	Swal.showValidationMessage(`el nombre de usuario debe ser mas largo de 5 letras y menor de 20.`);
+                            }
+
+                            if(type=="Comprador"){
+                                if (!login || !password || !password2 ||!email || !email2) {
+                                    Swal.showValidationMessage(`Rellena todos los campos.`);
+                                }
+                            }else{
+                                if (!login || !password || !password2 || !email || !email2 || !nomEmpresa || !telf || !cpostal) {
+                                    Swal.showValidationMessage(`Rellena todos los campos.`);
+                                }
+                             
+                            }
+
+                            return { type:type, login: login, password: password, nombre:nombre, email:email, nomEmpresa:nomEmpresa, telf:telf , cpostal:cpostal}
+                        }
+                    }).then((result) => {//Si todo es correcto envio peticion
+                        if(($("#login").val()).length>0){//sale al pulsar fuera del alert
+                            $.ajax({    
+                                type: "POST",
+                                url: "./basedatos/insertUsuario.php",             
+                                dataType: "text", 
+                                data: {tipo:$("#select").val(), usuario1:$("#login").val(), passwd:$("#password").val(), nombre:$("#nombre").val(), email:$("#correo").val(),empresa:$("#nomEmpresa").val(),telf:$("#telf").val(),cpostal:$('#cpostal').val()},         
+                                statusCode: {500:() => serverError()},
+                                success: respuesta => respuesta.length > 0 ? registroSuccess() : registroError(),
+                                error: (jqXHR, textStatus, errorThrown) => ajaxError(textStatus,errorThrown)
+                            });       
+                        }
+                    });
+                    $("#select").on("change",function(){//HTML Reactivo
+                        if($("#select").val()=="Comerciante"){
+                            $("#nomEmpresa").css("display","inline-block");
+                            $("#telf").css("display","inline-block");
+                            $("#cpostal").css("display","inline-block");
+                            $("#nombre").css("display","none");
+                        }else{
+                            $("#nomEmpresa").css("display","none");
+                            $("#telf").css("display","none");
+                            $("#cpostal").css("display","none");
+                            $("#nombre").css("display","inline-block");
+                        }                            
+                    })
+                });
+        </script>
+    </body>
+</html>

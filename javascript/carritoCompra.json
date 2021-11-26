@@ -1,0 +1,34 @@
+{
+    "productos":[
+        {
+            "nombre":"Super Mario 64",
+            "imagen":"../url",
+            "descripcion":"Super Mario 64 para Nintendo DS",
+            "precio":30
+        },
+        {
+            "nombre":"Televisor Samsung 42' OLED 4K",
+            "imagen":"../url",
+            "descripcion":"Televisor Samsung 42' OLED 4K",
+            "precio":700
+        },
+        {
+            "nombre":"Beats By Dr.Dre",
+            "imagen":"../url",
+            "descripcion":"Auriculares Beats By Dr.Dre. Color:Rojo",
+            "precio":365
+        },
+        {
+            "nombre":"iPhone 13 Pro Max",
+            "imagen":"../url",
+            "descripcion":"iPhone 13 Pro Max. 256GB 8GB RAM",
+            "precio":1350
+        },
+        {
+            "nombre":"Juegos de mesa",
+            "imagen":"../url",
+            "descripcion":"Juegos de mesa para toda la familia",
+            "precio":26
+        }
+    ]
+}
