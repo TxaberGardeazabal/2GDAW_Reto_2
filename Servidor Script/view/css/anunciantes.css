@@ -1,6 +1,6 @@
 main {
-    margin-top: 300px;
-    margin-bottom: 100px;
+    margin-top: 24vh;
+    margin-bottom: 4vh;
 }
 
 #bDecor {
@@ -33,13 +33,11 @@ main {
     margin: 0 9%;
     display: flex;
     flex-direction: column;
-    min-height: 60vh;
-    
 }
 
 #div_formulario {
     background-color: yellowgreen;
-    overflow-y: auto;
+    overflow-x: scroll;
     padding: 0 10%;
     margin: 0 9%;
 
@@ -55,7 +53,7 @@ main {
     display: block;
     padding: 5%;
     height: 20em;
-    overflow-y: scroll;
+    overflow-x: scroll;
 }
 
 .div_anuncio h3 {
@@ -63,7 +61,7 @@ main {
 }
 
 .div_anuncio .imagen {
-    height: 80%;
+    height: 25vh;
     width: 90%;
     margin: 0 auto;
 }
@@ -102,159 +100,26 @@ main {
     margin: 2% 0 1% 0;
 }
 
+#div_formulario form label{
+    color: red;
+
+}
+
 #div_formulario form input, #div_formulario form textarea{
-    
+    color: red;
     max-width: 100%;
 }
 
 #div_formulario form input:nth-child(10) {
-    max-width: 20%;
+    max-width: 40%;
 }
 
 #div_formulario form input[type="submit"], #div_formulario form input[type="reset"] {
     width: auto;
-    padding: 3px;
-    background-color: lime;
-    color: white;
-    border: none;
-    margin-right: 20px;
 }
 
 #div_formulario form :last-child {
     width: 100%;
     display: flex;
     justify-content: space-between;
-}
-
-@media screen and (min-width: 700px) {
-    main {
-        margin-top: 100px;
-        width: 100%;
-    }
-
-    #div_anuncios {
-        padding: 3%;
-        display: grid;
-        grid-template-rows: 2em 1fr 1fr;
-        grid-template-columns: 47% 47%;
-        gap: 20px 6%;
-    }
-
-    #div_anuncios h3{
-        grid-column-start: 1;
-        grid-column-end: 3;
-    }
-
-    #div_formulario {
-        width: auto;
-    }
-
-    #div_formulario form input:nth-child(10) {
-        max-width: 10%;
-    }
-
-    #div_formulario form :last-child {
-        justify-content: flex-start;
-    }
-}
-
-@media screen and (min-width: 1500px) {
-    #div_anuncios {
-        grid-template-columns: 22.7% 22.7% 22.7% 22.7%;
-        gap: 20px 3%;
-    }
-
-    #div_anuncios h3{
-        grid-column-start: 1;
-        grid-column-end: 5;
-    }
-
-    .div_anuncio .imagen {
-        height: 70%;
-    }
-
-    #div_formulario form{
-        display: grid;
-        grid-template-columns: repeat(2, auto);
-        grid-template-rows: repeat(9, auto);
-        grid-template-areas: 
-        "ltit lref"
-        "tit ref"
-        "ldesc lemp"
-        "desc emp"
-        "lloc lpre"
-        "loc pre"
-        "limg ."
-        "img ."
-        "last .";
-    }
-
-    #div_formulario form input {
-        max-width: 200px;
-    }
-
-    #div_formulario form textarea {
-        max-width: 500px;
-    }
-
-    form #tit {
-        grid-area: tit;
-    }
-
-    form #ref {
-        grid-area: ref;
-    }
-
-    form #emp {
-        grid-area: emp;
-    }
-
-    form #loc {
-        grid-area: loc;
-    }
-
-    form #pre {
-        grid-area: pre;
-    }
-
-    form #img {
-        grid-area: img;
-    }
-
-    form #desc {
-        grid-area: desc;
-    }
-
-    form label[for="tit"] {
-        grid-area: ltit;
-    }
-
-    form label[for="ref"] {
-        grid-area: lref;
-    }
-
-    form label[for="emp"] {
-        grid-area: lemp;
-    }
-
-    form label[for="loc"] {
-        grid-area: lloc;
-    }
-
-    form label[for="pre"] {
-        grid-area: lpre;
-    }
-
-    form label[for="img"] {
-        grid-area: limg;
-    }
-
-    form label[for="desc"] {
-        grid-area: ldesc;
-    }
-
-    #div_formulario form :last-child {
-        grid-area: last;
-        justify-content: flex-start;
-    }
 }

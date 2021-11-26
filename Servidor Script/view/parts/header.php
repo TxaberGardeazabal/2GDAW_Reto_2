@@ -9,7 +9,8 @@
 
     <link rel="stylesheet" href="css/busqueda.css">
     <link rel="stylesheet" href="css/categorias.css">
-
+    <script src="javascript/sweetalert2.all.js"></script>
+    <link rel="stylesheet" href="css/sweetalert2.css">
     <link rel="stylesheet" href="css/anunciantes.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <script src="./javascript/bootstrap.bundle.min.js"></script>

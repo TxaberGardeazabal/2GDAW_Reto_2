@@ -22,8 +22,13 @@
             
             $arrayBusqueda = selectComplejisima($baseDatos,"anuncios","nombre","nombre",$_GET["buscador"]);
             for($i= 0; $i<count($arrayBusqueda) ; $i++){
+                
+                 
                 echo "<a href=\"anuncios.php?anun=$arrayBusqueda[$i]\" class=\"busqueda anuncio anunciob\">$arrayBusqueda[$i]</a>";
-            }
+                
+                   
+        
+        }
         ?>  
     </div>
     <h2 style="color: wheat;">Relacionados</h2>

@@ -18,7 +18,7 @@
         if($_POST["usuario1"]==$usuarios[$i][0] && $_POST["passwd"]==$usuarios[$i][1]){
             $correcto=true;
             $nomUsuario=$_POST["usuario1"];
-            $_SESSION["usuario"]=$nomUsuario;
+            $_SESSION["Usuario"]=$nomUsuario;
             break;
         }
     }
