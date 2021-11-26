@@ -9,8 +9,45 @@ competencias tknika: https://tknika.setskills.org/ebaluazioa/
 
 ## documetacion:
 
+administrador de git/base de datos/documentador: Txaber Gardeazabal.
+diseño/programacion: Carlos Garcia.
+programacion: Rafaél Blazquez.
+
 Diagrama de Gantt (08/11/2021)
 ![diagramaGantt](https://user-images.githubusercontent.com/73467706/140913481-a5872244-c7b9-4cc9-a02d-1ff5902db03a.png)
 
 Diagrama de Gantt (26/11/2021)
-![newDiagramaGantt](https://docs.google.com/spreadsheets/d/1M0CESOEkOCUOFUccMgeGciqWsbkRKTBC70PqCsFWksU/edit#gid=0)
+![newDiagramaGantt](https://user-images.githubusercontent.com/73885809/143567668-32a9124c-bcc9-4048-87b8-829f025e7c2e.png)
+
+
+diseño inicial:
+![inicio](https://user-images.githubusercontent.com/73885809/143568032-d654b6ae-9fac-4346-bc72-7b536b824a4c.png)
+
+estructura de git diseñado con la metodologia master-develop
+
+herramientas usadas:
+- github
+- visual studio
+- vagrant
+- virtualbox
+- html5 y css3
+- javascript
+- jQuery
+- php7.2
+- apache
+- mysql
+- sweetalert2
+- google chrome
+- git kraken
+- google drive
+- bootstrap icons
+
+funcionalidades:
+- crear una cuenta de usuario como cliente o comerciante.
+- iniciar sesion como cliente o comerciante.
+- crear y borrar anuncios.
+- visualizar diferentes anuncios
+- buscar anuncios de diferentes maneras.
+- añadir anuncios a favoritos
+- guardar anuncios en carrito
+- recomendar anuncios por popularidad o por intereses
