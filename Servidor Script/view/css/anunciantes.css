@@ -9,12 +9,12 @@ main {
 
 #bDecor :first-child {
     z-index: 2;
-    background-color: #7ccc00;
+    background-color: #cfe1d5;
 }
 
 #bDecor :last-child {
     left: -17px;
-    background-color: lawngreen;
+    background-color: #bedec9;
     z-index: 1;
 }
 
@@ -27,7 +27,7 @@ main {
 }
 
 #div_anuncios {
-    background-color: midnightblue;
+    background-color: #cfe1d5;
     /*display: none;*/
     padding: 7%;
     margin: 0 9%;
@@ -38,7 +38,7 @@ main {
 }
 
 #div_formulario {
-    background-color: yellowgreen;
+    background-color: #cfe1d5;
     overflow-y: auto;
     padding: 0 10%;
     margin: 0 9%;
@@ -51,7 +51,7 @@ main {
 }
 
 .div_anuncio {
-    background-color: aqua;
+    background-color: whitesmoke;
     display: block;
     padding: 5%;
     height: 20em;
@@ -89,7 +89,11 @@ main {
 }
 
 .div_boton button {
-    margin: 2px 0 2px 4px;
+    margin: 3px 0 3px 6px;
+    padding: 2px;
+    background-color: #a7cfad;
+    border: none;
+    color: white;
 }
 
 #div_formulario h2 {
@@ -119,7 +123,7 @@ main {
 #div_formulario form input[type="submit"], #div_formulario form input[type="reset"] {
     width: auto;
     padding: 3px;
-    background-color: lime;
+    background-color: #a7cfad;
     color: white;
     border: none;
     margin-right: 20px;
