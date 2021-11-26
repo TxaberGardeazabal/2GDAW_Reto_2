@@ -20,12 +20,14 @@ Diagrama de Gantt (26/11/2021)
 ![newDiagramaGantt](https://user-images.githubusercontent.com/73885809/143567668-32a9124c-bcc9-4048-87b8-829f025e7c2e.png)
 
 
-diseño inicial:
-![inicio](https://user-images.githubusercontent.com/73885809/143568032-d654b6ae-9fac-4346-bc72-7b536b824a4c.png)
+base de datos:
+![image](https://user-images.githubusercontent.com/73885809/143574693-0af3c503-69d1-49d6-9abc-b5e1d54d0ff0.png)
+
 
 estructura de git diseñado con la metodologia master-develop
 
-herramientas usadas:
+
+# herramientas usadas:
 - github
 - visual studio
 - vagrant
@@ -42,7 +44,7 @@ herramientas usadas:
 - google drive
 - bootstrap icons
 
-funcionalidades:
+# funcionalidades:
 - crear una cuenta de usuario como cliente o comerciante.
 - iniciar sesion como cliente o comerciante.
 - crear y borrar anuncios.
@@ -50,4 +52,4 @@ funcionalidades:
 - buscar anuncios de diferentes maneras.
 - añadir anuncios a favoritos
 - guardar anuncios en carrito
-- recomendar anuncios por popularidad o por intereses
+- recomendar anuncios por popularidad, recientes o por intereses
