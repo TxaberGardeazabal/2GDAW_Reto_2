@@ -1,6 +1,7 @@
 <?php require"parts/header.php"?>
 <?php require"basedatos/conexionBD.php"?>
 <?php require"basedatos/selectAnuncios.php"?>
+<script type="text/javascript" src="./javascript/sweetalert2.all.js"></script>
 <script>
     document.cookie = "anchuraPantalla="+window.innerWidth+";";
 </script>
@@ -54,7 +55,7 @@
                     '<div class="imagen"><img src="'.$anun["imagen"].'" alt="imagen"></div>'.
                     '<div class="datos">'.
                     '<ul><li>Precio: '.$anun["precio"].'&euro;</li><li>REF: '.$refs["telefono"].'</li><li>Localizacion: '.$anun["localizacion"].'</li><li>Descripcion: '.$anun["descripcion"].'</li></ul>'.
-                    '</div></section><div class="div_boton"><button onclick="verAnuncio(\''.$anun["id"].'\')">Ver en la web</button><button onclick="borrarAnuncio(\''.$anun["id"].'\')">Eliminar</button></div></div>';
+                    '</div></section><div class="div_boton"><button onclick="verAnuncio(\''.$anun["nombre"].'\')">Ver en la web</button><button onclick="borrarAnuncio(\''.$anun["id"].'\')">Eliminar</button></div></div>';
                     echo $html;
                 }
             }
@@ -118,7 +119,7 @@
             const titulo = $("#tit").val();
             const localizacion = $("#loc").val();
             const precio = $("#pre").val();
-            const categoria = $("#categorias").val();
+            const categoria = "baloncesto";// $("#categorias").val();
             const descripcion = $("#desc").val();
             const imagen = $("#img").val();
             const extensionImagen=  imagen.split('.')[1];
